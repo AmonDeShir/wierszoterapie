@@ -1,0 +1,14 @@
+import styled from "@emotion/styled";
+
+export const Title = styled.h1`
+  width: 100%;
+  height: 14rem;
+  line-height: 14rem;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.primary};
+  font-family: ${({ theme }) => theme.fonts.ui};
+  font-weight: 500;
+  font-size: 4rem;
+  letter-spacing: 0.25em;
+`;
+
