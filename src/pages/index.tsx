@@ -11,7 +11,8 @@ import { WithNavigation } from "../components/with-nav/with-nav"
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Page>
-        <WithNavigation
+        <NavBar
+          sticky
           active={location.hash ?? "#book"}
           pages={[
             ["KSIĄŻKA", "#book"],
@@ -20,12 +21,11 @@ const IndexPage: React.FC<PageProps> = () => {
             ["O MNIE", "#about-me"],
           ]}
         >
-          <Book hasNav />
-        </WithNavigation>
-
-      <AboutMe /> 
-      <Poems />
-      <Contact />
+        </NavBar>
+      <Book hasNav />
+      <AboutMe hasNav /> 
+      <Poems hasNav />
+      <Contact hasNav />
     </Page>
   )
 }

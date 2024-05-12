@@ -1,9 +1,9 @@
 import { PropsWithChildren } from "react";
-import { Part } from "../components/part/part";
+import { Part, PartProps } from "../components/part/part";
 import { Title } from "../components/title/title";
 
-export const Poems = ({children}: PropsWithChildren) => (
-  <Part id="poems">
+export const Poems = ({children, hasNav }: PropsWithChildren<PartProps>) => (
+  <Part id="poems" hasNav={hasNav}>
     {children}
     <Title>Poems</Title>
   </Part>

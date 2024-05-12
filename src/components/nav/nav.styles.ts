@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import  { Link as GatsbyLink }from "gatsby";
 
 export const Container = styled.nav`
+  position: absolute;
+  top: 0px;
   height: 14rem;
   width: 100%;
   display: flex;

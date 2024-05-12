@@ -3,9 +3,10 @@ import { Center, Container, Link } from "./nav.styles";
 export type NavProps = {
   active: string,
   pages: ([string, string])[];
+  sticky?: boolean
 }
 
-export const NavBar = ({ pages, active }: NavProps) => {
+export const NavBar = ({ pages, active, sticky }: NavProps) => {
   return (
     <Container>
       <Center>

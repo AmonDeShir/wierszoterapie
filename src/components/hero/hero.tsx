@@ -1,25 +1,28 @@
 import { PropsWithChildren } from "react";
-import { Container, TextContainer } from "./hero.styles";
+import { Container, Image, ImageContainer, TextContainer } from "./hero.styles";
 import { Text } from "../text/text";
-import { Image } from "../image/image";
 import { WithTitle } from "../with-title/with-title";
 
 type Props = PropsWithChildren<{
   image: string,
   title: string,
+  align?: "center" | "justify",
+  imageAlign?: "center" | "top" | "bottom",
+  imageWidth?: string,
 }>
 
-export const Hero = ({ image, title, children }: Props) => (
+export const Hero = ({ image, title, align = "justify", imageAlign = "center", imageWidth="50vh", children }: Props) => (
   <Container>
-      <Image width="88rem" height="124rem" src={image} />
+    <ImageContainer height="100%" width={imageWidth} >
+      <Image src={image} imageAlign={imageAlign}/>
+    </ImageContainer>
 
-      <TextContainer>
+      <TextContainer imageWidth="80rem" >
         <WithTitle title={title}>
-          <Text align="justify">
+          <Text align={align}>
             {children}
           </Text>
         </WithTitle>
       </TextContainer>
-
   </Container>
 );

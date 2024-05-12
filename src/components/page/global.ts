@@ -22,7 +22,8 @@ export const global = css`
     font-weight: normal;
   }
 
-  #___gatsby, main, body, html {
+  #___gatsby, #gatsby-focus-wrapper, main, body, html {
     width: 100%;
+    height: 100%;
   }
 `;

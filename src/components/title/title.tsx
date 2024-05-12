@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 
 export const Title = styled.h1`
   width: 100%;
-  height: 14rem;
-  line-height: 14rem;
+  height: 7rem;
+  line-height: 3rem;
   text-align: center;
   color: ${({ theme }) => theme.colors.primary};
   font-family: ${({ theme }) => theme.fonts.ui};
