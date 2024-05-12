@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import  { Link as GatsbyLink }from "gatsby";
 
 export const Container = styled.nav`
-  height: 12rem;
+  height: 14rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -33,7 +33,6 @@ export const Link = styled(GatsbyLink)<LinkProps>`
   white-space: nowrap;
 
   &::before {
-    left: 0px;
     position: absolute;    
     content: "${({text}) => text}";
     will-change: font-size;
@@ -43,7 +42,13 @@ export const Link = styled(GatsbyLink)<LinkProps>`
 
   &:hover {
     &::before {
-      font-size: 3.2rem;
+      font-size: 3.4rem;
+    }
+  }
+
+  &:active {
+    &::before {
+      font-size: 2.8rem;
     }
   }
 `;

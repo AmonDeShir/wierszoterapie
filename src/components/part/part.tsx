@@ -6,7 +6,7 @@ export type PartProps = {
 
 export const Part = styled.section<PartProps>`
   width: 100%;
-  min-height: ${({ hasNav }) => hasNav ? "calc(100vh - 12rem)" : "100vh"};
+  min-height: ${({ hasNav }) => hasNav ? "calc(100vh - 14rem)" : "100vh"};
   display: flex;
   flex-direction: column;
   justify-content: center;

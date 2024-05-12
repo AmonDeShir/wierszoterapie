@@ -23,9 +23,9 @@ const IndexPage: React.FC<PageProps> = () => {
           <Book hasNav />
         </WithNavigation>
 
-      {/* <Poems />
+      <AboutMe /> 
+      <Poems />
       <Contact />
-      <AboutMe /> */}
     </Page>
   )
 }

@@ -22,14 +22,7 @@ export const global = css`
     font-weight: normal;
   }
 
-  main {
-    height: 100%;
+  #___gatsby, main, body, html {
     width: 100%;
-  }
-
-  body {
-    width: 100vw;
-    height: 100%;
-    min-height: 100vh;
   }
 `;
