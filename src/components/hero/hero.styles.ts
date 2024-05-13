@@ -13,12 +13,12 @@ export const Container = styled.div`
     flex-direction: column;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 500px) or (max-height: 500px) {
     flex-direction: column;
     padding: 0 5rem;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 400px) or (max-height: 400px) {
     flex-direction: column;
     padding: 0 0rem;
   }
@@ -32,7 +32,7 @@ export const TextContainer = styled.div<{ imageWidth?: string }>`
   align-items: center;
   max-width: min(100rem, calc(80vw - var(--image-width)));
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1000px) or (max-height: 500px) {
     max-width: 90vw;
   }
 `
@@ -51,7 +51,7 @@ export const ImageContainer = styled.div<ImageContainerProps>`
   align-items: center;
   padding: 0 5rem 0 0;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1000px) or (max-height: 500px) {
     padding: 0 0 4rem 0;
     min-height: 60rem;
     width: 100%;

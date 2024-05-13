@@ -9,7 +9,7 @@ export const Container = styled.nav`
   align-items: flex-end;
   background-color: ${({theme}) => theme.colors.secondary};
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1000px) or (max-height: 500px) {
     height: 28rem;
     align-items: center;
   }
@@ -38,7 +38,7 @@ export const Link = styled(GatsbyLink)<LinkProps>`
   text-align: center;
   white-space: nowrap;
 
-  @media (max-width: 400px) {
+  @media (max-width: 400px) or (max-height: 400px) {
     letter-spacing: 0em;
   }
 

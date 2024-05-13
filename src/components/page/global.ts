@@ -17,7 +17,7 @@ export const global = css`
     color: #333;
     font-weight: normal;
 
-    @media (max-width: 500px) {
+    @media (max-width: 500px) or (max-height: 500px) {
       font-size: 4px;
     }
   }
@@ -25,5 +25,13 @@ export const global = css`
   #___gatsby, #gatsby-focus-wrapper, main, body, html {
     width: 100%;
     height: 100%;
+
+    @media (max-height: 450px){
+      height: 107%;
+    }
+
+    @media (max-height: 325px){
+      height: 111%;
+    }
   }
 `;

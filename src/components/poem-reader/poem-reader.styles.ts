@@ -47,7 +47,7 @@ export const MobileIcons = styled.div`
   width: 100%;
   justify-content: space-between;
 
-  @media (max-width: 450px) {
+  @media (max-width: 450px) or (max-height: 450px) {
     display: flex;
   }
 `;
@@ -69,7 +69,7 @@ export const Icon = styled.div<{mobile?: boolean}>`
 
   display: ${({ mobile }) => mobile ? "none" : "block" };
 
-  @media (max-width: 450px) {
+  @media (max-width: 450px) or (max-height: 450px) {
     display: ${({ mobile }) => mobile ? "block" : "none" };
   }
 `;

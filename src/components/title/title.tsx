@@ -11,7 +11,7 @@ export const Title = styled.h1`
   font-size: 4rem;
   letter-spacing: 0.25em;
 
-  @media (max-width: 400px) {
+  @media (max-width: 400px) or (max-height: 400px){
     letter-spacing: 0em;
   }
 `;
