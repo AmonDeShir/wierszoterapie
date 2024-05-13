@@ -1,6 +1,5 @@
-import { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { forwardRef } from "react";
 import { Center, Container, Link } from "./nav.styles";
-import { useWindowSize } from "../../hooks/use-window-size";
 
 export type NavProps = {
   selected: string,
@@ -9,16 +8,16 @@ export type NavProps = {
 }
 
 export const NavBar = forwardRef<HTMLDivElement, NavProps>(({ pages, selected, useLinks = false }, ref) => {
-  const [_, height] = useWindowSize();
-
   const handleClick = (e: React.MouseEvent, target: [string, string, number]) => {
     if (useLinks) {
       return;
     }
 
+    let top = document.querySelector(target[1])?.getBoundingClientRect().top ?? 0;
+
     e.preventDefault();
     window.history.pushState(target[0], target[0], `/${target[1]}`);
-    window.scrollTo({behavior: "smooth", top: height * target[2] });
+    window.scrollTo({behavior: "smooth", top });
   } 
 
   return (

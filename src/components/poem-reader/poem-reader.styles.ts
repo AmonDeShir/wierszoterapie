@@ -41,8 +41,21 @@ export const Description = styled.p`
   font-family: ${({ theme }) => theme.fonts.text};
 `;
 
+export const MobileIcons = styled.div`
+  margin-top: 2em;
+  display: none;
+  width: 100%;
+  justify-content: space-between;
 
-export const Icon = styled.div`
+  @media (max-width: 450px) {
+    display: flex;
+  }
+`;
+
+
+export const Icon = styled.div<{mobile?: boolean}>`
+  width: 4rem;
+  height: 4rem;
   transition: transform 0.25s;
   cursor: pointer;
 
@@ -52,5 +65,11 @@ export const Icon = styled.div`
 
   &:selected {
     transform: scale(0.9);
+  }
+
+  display: ${({ mobile }) => mobile ? "none" : "block" };
+
+  @media (max-width: 450px) {
+    display: ${({ mobile }) => mobile ? "block" : "none" };
   }
 `;

@@ -8,6 +8,11 @@ export const Container = styled.nav`
   justify-content: center;
   align-items: flex-end;
   background-color: ${({theme}) => theme.colors.secondary};
+
+  @media (max-width: 1000px) {
+    height: 28rem;
+    align-items: center;
+  }
 `;
 
 export const Center = styled.div`
@@ -32,6 +37,10 @@ export const Link = styled(GatsbyLink)<LinkProps>`
   text-decoration: none;
   text-align: center;
   white-space: nowrap;
+
+  @media (max-width: 400px) {
+    letter-spacing: 0em;
+  }
 
   &::before {
     position: absolute;    

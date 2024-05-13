@@ -11,9 +11,9 @@ type Props = PropsWithChildren<{
   imageWidth?: string,
 }>
 
-export const Hero = ({ image, title, align = "justify", imageAlign = "center", imageWidth="50vh", children }: Props) => (
+export const Hero = ({ image, title, align = "justify", imageAlign = "center", children }: Props) => (
   <Container>
-    <ImageContainer height="100%" width={imageWidth} >
+    <ImageContainer>
       <Image src={image} imageAlign={imageAlign}/>
     </ImageContainer>
 

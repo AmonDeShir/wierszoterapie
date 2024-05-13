@@ -11,15 +11,15 @@ export const global = css`
     box-sizing: border-box;
   }
 
-  input {
-
-  }
-
   :root {
     font-size: 5px;
     font-family: 'Source Serif 4';
     color: #333;
     font-weight: normal;
+
+    @media (max-width: 500px) {
+      font-size: 4px;
+    }
   }
 
   #___gatsby, #gatsby-focus-wrapper, main, body, html {

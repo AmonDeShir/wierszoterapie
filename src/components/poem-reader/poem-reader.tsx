@@ -1,5 +1,5 @@
 import { PropsWithChildren, useRef, useState } from "react";
-import { Author, Container, Description, Icon, PoemContainer, Title } from "./poem-reader.styles";
+import { Author, Container, Description, Icon, MobileIcons, PoemContainer, Title } from "./poem-reader.styles";
 import { Text } from "../text/text";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
@@ -38,7 +38,7 @@ export const PoemReader = ({ poems }: Props) => {
   return (
     <Container>
         <Icon>
-          <FaChevronLeft color="#333" size="4rem" onClick={decrement} />
+          <FaChevronLeft color="#333" size="100%" onClick={decrement} />
         </Icon>
 
         <PoemContainer ref={ref}>
@@ -50,10 +50,20 @@ export const PoemReader = ({ poems }: Props) => {
           <Description>
             {poems[selected].date}
           </Description>
+
+          <MobileIcons>
+            <Icon mobile>
+              <FaChevronLeft color="#333" size="100%" onClick={decrement} />
+            </Icon>
+
+            <Icon mobile>
+              <FaChevronRight color="#333" size="100%" onClick={increment} />
+            </Icon>
+          </MobileIcons>
         </PoemContainer>
 
         <Icon>
-          <FaChevronRight color="#333" size="4rem" onClick={increment} />
+          <FaChevronRight color="#333" size="100%" onClick={increment} />
         </Icon>
     </Container>
   );
