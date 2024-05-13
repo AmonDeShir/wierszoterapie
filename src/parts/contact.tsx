@@ -5,7 +5,7 @@ import { EmailPhone, SocialMedia } from "../components/contact/contact-data";
 import { WithTitle } from "../components/with-title/with-title";
 
 export const Contact = ({children, hasNav }: PropsWithChildren<PartProps>) => (
-  <Part id="contact" hasNav={hasNav}>
+  <Part hasNav={hasNav}>
     {children}
     
     <EmailPhone

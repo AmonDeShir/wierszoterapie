@@ -22,11 +22,10 @@ const poems: PoemData[] = [
 ]
 
 export const Poems = ({children, hasNav }: PropsWithChildren<PartProps>) => (
-  <Part id="poems" hasNav={hasNav}>
+  <Part hasNav={hasNav}>
     {children}
     
     <PoemReader
-      selected={1}
       poems={poems}
     />
   </Part>

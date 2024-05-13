@@ -7,6 +7,7 @@ export const Container = styled.nav`
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  background-color: ${({theme}) => theme.colors.secondary};
 `;
 
 export const Center = styled.div`

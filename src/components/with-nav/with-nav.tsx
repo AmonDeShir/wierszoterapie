@@ -3,15 +3,15 @@ import { Container } from "./with-nav.styles";
 import { NavBar, NavProps } from "../nav/nav";
 import gsap from "gsap";
 
-type Props = PropsWithChildren<NavProps>;
+type Props = PropsWithChildren<{ id?: string } & NavProps>;
 
-export const WithNavigation = ({children, ...props}: Props ) => {
+export const WithNavigation = ({children, id, ...props}: Props ) => {
   const ref = useRef<HTMLDivElement>(null);
   const nav = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
 
-    if (props.active == (location.hash ? location.hash : "#book")) {
+    if (props.active == (location.hash ? location.hash : "#wierszoterapie")) {
       return;
     }
 
@@ -40,7 +40,7 @@ export const WithNavigation = ({children, ...props}: Props ) => {
   });
 
   return (
-    <Container>
+    <Container id={id}>
       <NavBar {...props} ref={nav} />
 
       <Container ref={ref}>

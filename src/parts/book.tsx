@@ -6,7 +6,7 @@ import { Hero } from "../components/hero/hero";
 import { Wierszoterapie } from "../data/wierszoterapie";
 
 export const Book = ({ children, hasNav }: PropsWithChildren<PartProps>) => (
-  <Part id="book" hasNav={hasNav}>
+  <Part hasNav={hasNav}>
     {children}
       <Hero title={"Wierszoterapie"} image={book}>
         <Wierszoterapie />

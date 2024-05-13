@@ -13,7 +13,7 @@ import { ScrollTrigger } from "gsap/all"
 gsap.registerPlugin(ScrollTrigger) 
 
 const pages: [string, string, number][] = [
-  ["KSIĄŻKA", "#book", 0],
+  ["KSIĄŻKA", "#wierszoterapie", 0],
   ["WIERSZE", "#poems", 2],
   ["KONTAKT", "#contact", 3],
   ["O MNIE", "#about-me", 1],
@@ -22,19 +22,19 @@ const pages: [string, string, number][] = [
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Page>
-        <WithNavigation active={"#book"} pages={pages}>
+        <WithNavigation active={"#wierszoterapie"} pages={pages} id="wierszoterapie">
           <Book hasNav />
         </WithNavigation>
 
-        <WithNavigation active={"#about-me"} pages={pages}>
+        <WithNavigation active={"#about-me"} pages={pages} id="about-me">
           <AboutMe hasNav />
         </WithNavigation>
 
-        <WithNavigation active={"#poems"} pages={pages}>
+        <WithNavigation active={"#poems"} pages={pages} id="poems">
           <Poems hasNav />
         </WithNavigation>
 
-        <WithNavigation active={"#contact"} pages={pages}>
+        <WithNavigation active={"#contact"} pages={pages} id="contact">
           <Contact hasNav />
         </WithNavigation>
     </Page>
