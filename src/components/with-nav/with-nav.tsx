@@ -10,7 +10,8 @@ export const WithNavigation = ({children, ...props}: Props ) => {
   const nav = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (props.active == "#book") {
+
+    if (props.active == (location.hash ? location.hash : "#book")) {
       return;
     }
 
