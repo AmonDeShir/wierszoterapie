@@ -1,5 +1,5 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import { graphql, type HeadFC, type HeadProps, type PageProps } from "gatsby"
 import { NavBar } from "../components/nav/nav"
 import { Page } from "../components/page/page"
 import { Book } from "../parts/book"
@@ -10,6 +10,7 @@ import { WithNavigation } from "../components/with-nav/with-nav"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all"
 import ReactPageScroller from 'react-page-scroller';
+import { SEO } from "../components/seo/seo"
 
 gsap.registerPlugin(ScrollTrigger) 
 
@@ -58,4 +59,36 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+interface DataType {
+  site: {
+    siteMetadata: {
+      siteUrl: string;
+    };
+  };
+};
+
+
+export function Head({ data, location }: HeadProps<DataType>) {
+  const siteUrl = data.site.siteMetadata.siteUrl;
+  const slug = location.pathname;
+
+  return (
+    <SEO
+      url={`${siteUrl}${slug}`}
+      title="" 
+      description=""
+    >
+      <html lang="pl" />
+    </SEO>
+  );
+}
+
+export const query = graphql`
+  {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`;
