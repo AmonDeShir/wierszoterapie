@@ -40,3 +40,17 @@ export const Description = styled.p`
   color: ${({ theme }) => theme.colors.primary};
   font-family: ${({ theme }) => theme.fonts.text};
 `;
+
+
+export const Icon = styled.div`
+  transition: transform 0.25s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+`;
