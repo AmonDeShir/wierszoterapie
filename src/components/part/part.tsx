@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import gsap from "gsap";
 import { PropsWithChildren, useLayoutEffect, useRef } from "react";
 
 export type PartProps = {
-  hasNav?: boolean
+  hasNav?: boolean,
+  id?: string,
 }
 
 export const PartContainer = styled.section<PartProps>`
@@ -15,9 +15,9 @@ export const PartContainer = styled.section<PartProps>`
   justify-content: center;
 `;
 
-export const Part = ({hasNav, children}: PropsWithChildren<PartProps>) => {  
+export const Part = ({hasNav, id, children}: PropsWithChildren<PartProps>) => {  
   return (
-    <PartContainer hasNav={hasNav}>
+    <PartContainer id={id} hasNav={hasNav}>
       {children}
     </PartContainer>
   );

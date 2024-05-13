@@ -14,7 +14,6 @@ export const WithNavigation = ({children, ...props}: Props ) => {
       return;
     }
 
-
     let ctx = gsap.context(() => {
       gsap.fromTo(ref.current, { y: '+=100', opacity: 0}, {
         opacity: 1,
