@@ -50,7 +50,7 @@ export const Icon = styled.div`
     transform: scale(1.2);
   }
 
-  &:active {
+  &:selected {
     transform: scale(0.9);
   }
 `;

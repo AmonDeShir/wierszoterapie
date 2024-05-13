@@ -17,7 +17,7 @@ export const Center = styled.div`
 `;
 
 export type LinkProps = {
-  active?: boolean;
+  selected?: boolean;
   text: string;
 }
 
@@ -38,7 +38,7 @@ export const Link = styled(GatsbyLink)<LinkProps>`
     content: "${({text}) => text}";
     will-change: font-size;
     transition: color 0.25s, font-size 0.25s;
-    color: ${({theme, active}) => active ? theme.colors.primary : theme.colors.text};
+    color: ${({theme, selected}) => selected ? theme.colors.primary : theme.colors.text};
   }
 
   &:hover {
@@ -47,7 +47,7 @@ export const Link = styled(GatsbyLink)<LinkProps>`
     }
   }
 
-  &:active {
+  &:selected {
     &::before {
       font-size: 2.8rem;
     }

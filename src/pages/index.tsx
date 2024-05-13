@@ -22,19 +22,19 @@ const pages: [string, string, number][] = [
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Page>
-        <WithNavigation active={"#wierszoterapie"} pages={pages} id="wierszoterapie">
+        <WithNavigation selected={"#wierszoterapie"} pages={pages} id="wierszoterapie">
           <Book hasNav />
         </WithNavigation>
 
-        <WithNavigation active={"#about-me"} pages={pages} id="about-me">
+        <WithNavigation selected={"#about-me"} pages={pages} id="about-me">
           <AboutMe hasNav />
         </WithNavigation>
 
-        <WithNavigation active={"#poems"} pages={pages} id="poems">
+        <WithNavigation selected={"#poems"} pages={pages} id="poems">
           <Poems hasNav />
         </WithNavigation>
 
-        <WithNavigation active={"#contact"} pages={pages} id="contact">
+        <WithNavigation selected={"#contact"} pages={pages} id="contact">
           <Contact hasNav />
         </WithNavigation>
     </Page>

@@ -35,7 +35,6 @@ export const PoemReader = ({ poems }: Props) => {
       .to(ref.current, { opacity: 1, duration: 0.25 })
   }
   
-
   return (
     <Container>
         <Icon>

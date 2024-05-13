@@ -11,7 +11,7 @@ export const WithNavigation = ({children, id, ...props}: Props ) => {
 
   useLayoutEffect(() => {
 
-    if (props.active == (location.hash ? location.hash : "#wierszoterapie")) {
+    if (props.selected == (location.hash ? location.hash : "#wierszoterapie")) {
       return;
     }
 
