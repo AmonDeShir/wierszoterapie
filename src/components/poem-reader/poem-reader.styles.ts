@@ -21,6 +21,13 @@ export const Author = styled.p`
   padding-bottom: 2rem;
 `;
 
+export const Dedication = styled.p`
+  display: block;
+  text-align: right;
+  font-size: 2.6rem;
+`;
+
+
 export const Title = styled.h1`
   display: block;
   text-align: left;

@@ -1,24 +1,31 @@
 import { PropsWithChildren } from "react";
 import { Part, PartProps } from "../components/part/part";
-import { Title } from "../components/title/title";
 import { PoemData, PoemReader } from "../components/poem-reader/poem-reader";
-import { LaMuseeDeLHomme, Lucyfer } from "../data/poems";
+import { PiwoniePokrzywy, Powrot, ZapisujePoetke } from "../data/poems";
 
 const poems: PoemData[] = [
   {
-    text: <Lucyfer />,
-    author: "Tadeusz Miciński",
-    date: "1931",
+    text: <PiwoniePokrzywy />,
+    title: "Piwonie i pokrzywy",
+    author: "Patrycja Purgał",
+    date: "",
     dedication: "",
-    title: "Lucyfer"
   },
   {
-    text: <LaMuseeDeLHomme />,
-    author: "Tymoteusz Karpowicz",
-    date: "Warszawa 2001",
+    text: <Powrot />,
+    title: "Powrót",
+    author: "Patrycja Purgał",
+    date: "Legnica, lipiec 2023",
     dedication: "",
-    title: "La musée de l’homme"
-  }
+  },
+  {
+    text: <ZapisujePoetke />,
+    title: "Zapisuję poetkę",
+    author: "Patrycja Purgał",
+    date: "",
+    dedication: "Krystynie Miłobędzkiej",
+  },
+
 ]
 
 export const Poems = ({children, hasNav }: PropsWithChildren<PartProps>) => (

@@ -1,9 +1,10 @@
 import { PropsWithChildren, useRef, useState } from "react";
-import { Author, Container, Description, Icon, MobileIcons, PoemContainer, Title } from "./poem-reader.styles";
+import { Author, Container, Dedication, Description, Icon, MobileIcons, PoemContainer, Title } from "./poem-reader.styles";
 import { Text } from "../text/text";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import gsap from "gsap";
+import { Animation } from "../part/animations";
 
 export type PoemData = {
   text: JSX.Element,
@@ -15,9 +16,10 @@ export type PoemData = {
 
 type Props = PropsWithChildren<{
   poems: PoemData[],
+  enter?: Animation,
 }>
 
-export const PoemReader = ({ poems }: Props) => {
+export const PoemReader = ({ poems, enter }: Props) => {
   const [selected, setSelected] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -44,6 +46,8 @@ export const PoemReader = ({ poems }: Props) => {
         <PoemContainer ref={ref}>
           <Author>{poems[selected].author}</Author>
           <Title>{poems[selected].title}</Title>
+          <Dedication>{poems[selected].dedication}</Dedication>
+
           <Text align="left">
             {poems[selected].text}
           </Text>

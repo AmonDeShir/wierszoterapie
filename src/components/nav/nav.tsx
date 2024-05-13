@@ -5,19 +5,20 @@ export type NavProps = {
   selected: string,
   useLinks?: boolean,
   pages: ([string, string, number])[];
+  goToPage?: (page: number) => void;
 }
 
-export const NavBar = forwardRef<HTMLDivElement, NavProps>(({ pages, selected, useLinks = false }, ref) => {
+export const NavBar = forwardRef<HTMLDivElement, NavProps>(({ pages, selected, useLinks = false, goToPage }, ref) => {
   const handleClick = (e: React.MouseEvent, target: [string, string, number]) => {
     if (useLinks) {
       return;
     }
-
-    let top = document.querySelector(target[1])?.getBoundingClientRect().top ?? 0;
-
+    
     e.preventDefault();
-    window.history.pushState(target[0], target[0], `/${target[1]}`);
-    window.scrollTo({behavior: "smooth", top });
+    
+    if (goToPage) {
+      goToPage(target[2])
+    }
   } 
 
   return (

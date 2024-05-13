@@ -9,6 +9,7 @@ import { AboutMe } from "../parts/about-me"
 import { WithNavigation } from "../components/with-nav/with-nav"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all"
+import ReactPageScroller from 'react-page-scroller';
 
 gsap.registerPlugin(ScrollTrigger) 
 
@@ -20,23 +21,37 @@ const pages: [string, string, number][] = [
 ];
 
 const IndexPage: React.FC<PageProps> = () => {
+  const [page, setPage] = React.useState(0);
+
+  const handlePageChange = (page: number) => {
+    setPage(page)
+  };
+
   return (
+
     <Page>
-        <WithNavigation selected={"#wierszoterapie"} pages={pages} id="wierszoterapie">
-          <Book hasNav />
-        </WithNavigation>
+      <ReactPageScroller
+        pageOnChange={handlePageChange}
+        customPageNumber={page}
+        containerHeight={"100lvh"}
+        containerWidth={"100lvw"}
+      >
+          <WithNavigation selected={"#wierszoterapie"} pages={pages} id="wierszoterapie" goToPage={setPage}>
+            <Book hasNav />
+          </WithNavigation>
 
-        <WithNavigation selected={"#about-me"} pages={pages} id="about-me">
-          <AboutMe hasNav />
-        </WithNavigation>
+          <WithNavigation selected={"#about-me"} pages={pages} id="about-me" goToPage={setPage}>
+            <AboutMe hasNav />
+          </WithNavigation>
 
-        <WithNavigation selected={"#poems"} pages={pages} id="poems">
-          <Poems hasNav />
-        </WithNavigation>
+          <WithNavigation selected={"#poems"} pages={pages} id="poems" goToPage={setPage}>
+            <Poems hasNav />
+          </WithNavigation>
 
-        <WithNavigation selected={"#contact"} pages={pages} id="contact">
-          <Contact hasNav />
-        </WithNavigation>
+          <WithNavigation selected={"#contact"} pages={pages} id="contact" goToPage={setPage}>
+            <Contact hasNav />
+          </WithNavigation>
+        </ReactPageScroller>
     </Page>
   )
 }

@@ -31,6 +31,7 @@ export const TextContainer = styled.div<{ imageWidth?: string }>`
   justify-content: center;
   align-items: center;
   max-width: min(100rem, calc(80vw - var(--image-width)));
+  padding-bottom: 2rem;
 
   @media (max-width: 1000px) or (max-height: 500px) {
     max-width: 90vw;
@@ -71,5 +72,7 @@ export const Image = styled.div<ImageProps>`
   background-image: ${({ src }) => `url("${src}")`};
   background-repeat: no-repeat;
   background-size: contain;
+  position: relative;
+  z-index: -1;
   background-position: ${({ imageAlign }) => imageAlign ?? "center"} center;
 `;
