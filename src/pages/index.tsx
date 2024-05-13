@@ -7,25 +7,36 @@ import { Poems } from "../parts/poems"
 import { Contact } from "../parts/contact"
 import { AboutMe } from "../parts/about-me"
 import { WithNavigation } from "../components/with-nav/with-nav"
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all"
+
+gsap.registerPlugin(ScrollTrigger) 
+
+const pages: [string, string, number][] = [
+  ["KSIĄŻKA", "#book", 0],
+  ["WIERSZE", "#poems", 2],
+  ["KONTAKT", "#contact", 3],
+  ["O MNIE", "#about-me", 1],
+];
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Page>
-        <NavBar
-          sticky
-          active={location.hash ?? "#book"}
-          pages={[
-            ["KSIĄŻKA", "#book"],
-            ["WIERSZE", "#poems"],
-            ["KONTAKT", "#contact"],
-            ["O MNIE", "#about-me"],
-          ]}
-        >
-        </NavBar>
-      <Book hasNav />
-      <AboutMe hasNav /> 
-      <Poems hasNav />
-      <Contact hasNav />
+        <WithNavigation active={"#book"} pages={pages}>
+          <Book hasNav />
+        </WithNavigation>
+
+        <WithNavigation active={"#about-me"} pages={pages}>
+          <AboutMe hasNav />
+        </WithNavigation>
+
+        <WithNavigation active={"#poems"} pages={pages}>
+          <Poems hasNav />
+        </WithNavigation>
+
+        <WithNavigation active={"#contact"} pages={pages}>
+          <Contact hasNav />
+        </WithNavigation>
     </Page>
   )
 }
