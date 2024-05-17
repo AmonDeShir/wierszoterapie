@@ -12,12 +12,6 @@ export const AboutMe = ({children, hasNav }: PropsWithChildren<PartProps>) => (
     {children}
     <Hero image={author} title="O mnie" align="justify" imageAlign="bottom" >
       Jestem absolwentką Uniwersytetu Ekonomicznego w Poznaniu oraz studiów podyplomowych „Teksty współczesnej kultury" w Instytucie Literatury Polskiej Uniwersytetu Warszawskiego. Dla literatury porzuciłam pracę naukową w dziedzinie ekonomii. Zawodowo, jako ekonomistka, zajmuję się analizami rynku. Doraźnie redaguję teksty poetyckie i użytkowe. Jestem związana z trzema miastami: Legnicą, Poznaniem oraz Warszawą. W wolnych chwilach tańczę tango argentyńskie. „Wierszoterapie" to mój debiut książkowy. W przygotowaniu kolejna książka poetycka.
-      <br/>
-      <br/>
-      Jeśli podoba Ci się moja twórczość, możesz mnie wesprzeć dobrowolną wpłatą w serwisie buycoffe.to, którą przeznaczę na kolejną książkę poetycką.
-      <Button4>
-        <img src={bmc} style={{width: "25rem"}}  />
-      </Button4>
     </Hero>
   </Part>
 );
