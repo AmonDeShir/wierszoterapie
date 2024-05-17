@@ -20,8 +20,8 @@ export const Contact = ({children, hasNav }: PropsWithChildren<PartProps>) => (
     </WithTitle>
     
     <Footer>
-     {`Copyright© Patrycja Purgał-Wilińska, 2024`.toUpperCase()} <br/>
-     Created by Dominik Purgał 
+     {`Copyright© Patrycja Purgał-Wilińska, 2024`.toUpperCase()}
+     <p style={{display: "block"}} >Created by <a style={{ color: "#fff", textDecoration: "none" }} href="https://www.purgal.xyz">Dominik Purgał</a></p>
     </Footer>
   </Part>
 );

@@ -34,4 +34,8 @@ export const global = css`
       height: 111%;
     }
   }
+
+  .link, .link:hover, .link:focus, .link:active {
+    color: inherit;
+  }
 `;

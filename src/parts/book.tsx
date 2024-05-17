@@ -11,7 +11,7 @@ export const Book = ({ children, hasNav }: PropsWithChildren<PartProps>) => (
     {children}
       <Hero title={"Wierszoterapie"} image={book}>
         <Wierszoterapie />
-        <Button3 href="https://ostrogi.eu/ksiazki/wierszoterapie/">Kup książkę</Button3>
+        <Button href="https://ostrogi.eu/ksiazki/wierszoterapie/">Kup książkę</Button>
       </Hero>
   </Part>
 );
