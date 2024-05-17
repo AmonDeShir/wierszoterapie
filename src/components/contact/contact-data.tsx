@@ -4,10 +4,9 @@ import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 
 type EmailPhoneProps = {
   email: string,
-  phone: string,
 }
 
-export const EmailPhone = ({ email, phone }: EmailPhoneProps) => (
+export const EmailPhone = ({ email }: EmailPhoneProps) => (
   <WithTitle title="Kontakt">
     <Lines>
       <Line>
@@ -16,15 +15,6 @@ export const EmailPhone = ({ email, phone }: EmailPhoneProps) => (
         </Text>
         <Text>
           { email }
-        </Text>
-      </Line>
-
-      <Line>
-        <Text bold>
-          Phone:
-        </Text>
-        <Text>
-          { phone }
         </Text>
       </Line>
     </Lines>

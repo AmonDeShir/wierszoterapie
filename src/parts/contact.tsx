@@ -9,7 +9,6 @@ export const Contact = ({children, hasNav }: PropsWithChildren<PartProps>) => (
     {children}
     
     <EmailPhone
-      phone="+48 882 104 742"
       email="wierszoterapie@gmail.com"
     />
 
