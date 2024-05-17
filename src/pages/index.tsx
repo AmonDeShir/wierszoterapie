@@ -1,6 +1,5 @@
 import * as React from "react"
 import { graphql, type HeadFC, type HeadProps, type PageProps } from "gatsby"
-import { NavBar } from "../components/nav/nav"
 import { Page } from "../components/page/page"
 import { Book } from "../parts/book"
 import { Poems } from "../parts/poems"
@@ -16,9 +15,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 const pages: [string, string, number][] = [
   ["KSIĄŻKA", "#wierszoterapie", 0],
+  ["O MNIE", "#about-me", 1],
   ["WIERSZE", "#poems", 2],
   ["KONTAKT", "#contact", 3],
-  ["O MNIE", "#about-me", 1],
 ];
 
 const IndexPage: React.FC<PageProps> = () => {

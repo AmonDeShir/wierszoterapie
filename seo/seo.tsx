@@ -27,3 +27,4 @@ export function SEO({ title, description, url, children }: React.PropsWithChildr
   );
 };
 
+// TODO -- add wierszotapia cover as media link

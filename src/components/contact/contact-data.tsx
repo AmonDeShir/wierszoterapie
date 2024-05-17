@@ -34,12 +34,10 @@ export const EmailPhone = ({ email, phone }: EmailPhoneProps) => (
 type SocialMediaProps = {
   size: string
   facebook: string,
-  instagram: string,
 }
 
-export const SocialMedia = ({facebook, instagram, size}: SocialMediaProps) => (
+export const SocialMedia = ({facebook, size}: SocialMediaProps) => (
   <IconsFlex>
     <a  href={facebook}><FaFacebookSquare color="#333" size={size} /> </a>
-    <a  href={instagram}><FaInstagramSquare color="#333" size={size} /></a>
   </IconsFlex>
 );

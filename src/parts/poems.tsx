@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import { Part, PartProps } from "../components/part/part";
 import { PoemData, PoemReader } from "../components/poem-reader/poem-reader";
-import { PiwoniePokrzywy, Powrot, ZapisujePoetke } from "../data/poems";
+import { KodRTG, KsiazkiNaPolkach, PiwoniePokrzywy, ProblemyOddychaniem } from "../data/poems";
 
 const poems: PoemData[] = [
   {
@@ -12,20 +12,19 @@ const poems: PoemData[] = [
     dedication: "",
   },
   {
-    text: <Powrot />,
-    title: "Powrót",
+    text: <KsiazkiNaPolkach />,
+    title: "Książki na półkach",
     author: "Patrycja Purgał",
-    date: "Legnica, lipiec 2023",
+    date: "",
     dedication: "",
   },
   {
-    text: <ZapisujePoetke />,
-    title: "Zapisuję poetkę",
+    text: <KodRTG />,
+    title: "Kod RTG 6790#",
     author: "Patrycja Purgał",
     date: "",
-    dedication: "Krystynie Miłobędzkiej",
+    dedication: "",
   },
-
 ]
 
 export const Poems = ({children, hasNav }: PropsWithChildren<PartProps>) => (

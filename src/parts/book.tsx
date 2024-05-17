@@ -4,12 +4,14 @@ import { Title } from "../components/title/title";
 import book from "../images/book.webp";
 import { Hero } from "../components/hero/hero";
 import { Wierszoterapie } from "../data/wierszoterapie";
+import { Button, Button2, Button3 } from "../components/button/button";
 
 export const Book = ({ children, hasNav }: PropsWithChildren<PartProps>) => (
   <Part hasNav={hasNav}>
     {children}
       <Hero title={"Wierszoterapie"} image={book}>
         <Wierszoterapie />
+        <Button3 href="https://ostrogi.eu/ksiazki/wierszoterapie/">Kup książkę</Button3>
       </Hero>
   </Part>
 );
