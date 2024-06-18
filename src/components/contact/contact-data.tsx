@@ -1,5 +1,5 @@
-import { WithTitle } from "../with-title/with-title";
-import { IconsFlex, Line, Lines, Text } from "./contact-data.styles";
+import React from "react";
+import { Title, IconsFlex, Line, Lines, Text  } from "./contact-data.styles";
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 
 type EmailPhoneProps = {
@@ -7,7 +7,8 @@ type EmailPhoneProps = {
 }
 
 export const EmailPhone = ({ email }: EmailPhoneProps) => (
-  <WithTitle title="Kontakt">
+  <>
+    <Title>Kontakt</Title>
     <Lines>
       <Line>
         <Text bold>
@@ -18,16 +19,18 @@ export const EmailPhone = ({ email }: EmailPhoneProps) => (
         </Text>
       </Line>
     </Lines>
-  </WithTitle>
+  </>
 );
 
 type SocialMediaProps = {
   size: string
   facebook: string,
+  instagram: string,
 }
 
-export const SocialMedia = ({facebook, size}: SocialMediaProps) => (
+export const SocialMedia = ({facebook, instagram, size}: SocialMediaProps) => (
   <IconsFlex>
-    <a  href={facebook}><FaFacebookSquare color="#333" size={size} /> </a>
+    <a href={facebook}><FaFacebookSquare color="#333" size={size} /> </a>
+    <a href={instagram}><FaInstagramSquare color="#333" size={size} /> </a>
   </IconsFlex>
 );

@@ -1,35 +1,5 @@
 import React from "react";
 
-
-export const ProblemyOddychaniem = () => (
-  <>
-    Wiosną z braku słońca <br />
-    zapalaliśmy wieczorami solną lampkę. <br />
-    W maju spadł śnieg − wrzosowy koc, <br />
-    którym okrywałeś mi stopy <br />
-    zdarł się niemal do przezroczystości. <br />
-    W końcu śnieg stopniał, trawa zaczęła się zielenić. <br />
-    Wróciłam z podróży i zobaczyłam <br />
-    jak korytarzem do naszego pustego mieszkania <br />
-    pewnie zmierzają mrówki. <br />
-    Nawet przyroda miała już dość zimna − <br />
-    widocznie wszystkie żywe stworzenia <br />
-    potrzebują schronienia, ciepła i bliskości. <br />
-    Tamtej wiosny jakby na przekór chłodom <br />
-    doszliśmy do siebie w końcu, <br />
-    tęsknota za ciepłem znalazła <br />
-    swoje ujście, jak mrówki. <br />
-    Wróciliśmy do rozmów o sensie, <br />
-    smog rozwiały nowe układy baryczne, <br />
-    wyszliśmy na powietrze. <br />
-    Tamtej wiosny w końcu wszystko <br />
-    nastało, jak powinno. <br />
-    Tylko nie wiem dlaczego wciąż <br />
-    mam problemy z oddychaniem. <br />
-  </>
-);
-
-
 export const PiwoniePokrzywy = () => (
   <>
     Nie było nas tyle czasu − dom prawie<br />
@@ -70,7 +40,6 @@ export const KodRTG = () => (
     Kod wciąż działa. <br />
   </>
 );
-
 
 export const KsiazkiNaPolkach = () => (
   <>

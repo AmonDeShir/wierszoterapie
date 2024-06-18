@@ -1,7 +1,6 @@
-import { PropsWithChildren } from "react";
-import { Part, PartProps } from "../components/part/part";
 import { PoemData, PoemReader } from "../components/poem-reader/poem-reader";
-import { KodRTG, KsiazkiNaPolkach, PiwoniePokrzywy, ProblemyOddychaniem } from "../data/poems";
+import { KodRTG, KsiazkiNaPolkach, PiwoniePokrzywy } from "../data/poems";
+import styled from "@emotion/styled";
 
 const poems: PoemData[] = [
   {
@@ -27,12 +26,22 @@ const poems: PoemData[] = [
   },
 ]
 
-export const Poems = ({children, hasNav }: PropsWithChildren<PartProps>) => (
-  <Part hasNav={hasNav}>
-    {children}
-    
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10vmin;
+  height: 100vh;
+
+  @media (max-width: 1000px) {
+    padding: 0px;
+  }
+`;
+
+export const Poems = () => (
+  <Container id="poems">    
     <PoemReader
       poems={poems}
     />
-  </Part>
+  </Container>
 );

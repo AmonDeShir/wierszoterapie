@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 import image from "../images/author.webp"
-import { Wierszoterapie } from "../data/wierszoterapie";
-import { Button } from "../components/button/button";
 import { AboutMeText } from "../data/about-me";
 
 const Container = styled.div`

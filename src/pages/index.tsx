@@ -5,6 +5,8 @@ import { SEO } from "../components/seo/seo"
 import { Book } from "../parts/book";
 import { NavBar } from "../components/nav/nav";
 import { AboutMe } from "../parts/about-me";
+import { Poems } from "../parts/poems";
+import { Contact } from "../parts/contact";
 
 const pages: [string, string, number][] = [
   ["KSIĄŻKA", "#wierszoterapie", 0],
@@ -25,6 +27,8 @@ const IndexPage: React.FC<PageProps> = () => {
       <NavBar selected={pages[page][1]} pages={pages} goToPage={handlePageChange} />
       <Book />
       <AboutMe />
+      <Poems />
+      <Contact />
     </Page>
   )
 }

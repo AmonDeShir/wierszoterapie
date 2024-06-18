@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { PropsWithChildren } from "react";
 
 export const Container = styled.div`
   width: 100%;
@@ -87,3 +88,15 @@ export const TextContainer = styled.div`
   position: relative;
   overflow-y: auto;
 `;
+
+type TextProps = PropsWithChildren<{
+  width?: string;
+  align?: "start" | "end" | "left" | "right" | "center" | "justify" | "match-parent"
+}>;
+
+export const Text = styled.p<TextProps>`
+  display: block;
+  text-align: ${({ align }) => align ?? "center"};
+  font-size: 2.6rem;
+  max-width: ${({ width }) => width ?? "initial" };
+`
