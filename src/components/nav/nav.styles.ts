@@ -4,21 +4,27 @@ import  { Link as GatsbyLink }from "gatsby";
 export const Container = styled.nav`
   height: 14rem;
   width: 100%;
+  top: 10px;
+  position: sticky;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   background-color: ${({theme}) => theme.colors.secondary};
+
+  @media (max-width: 1000px) {
+    padding: 0 5px;
+    position: static;
+  }
 
   @media (max-width: 1000px) or (max-height: 500px) {
     height: 28rem;
-    align-items: center;
   }
 `;
 
 export const Center = styled.div`
-  width: 80%;
+  width: 45%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 `;
 
 export type LinkProps = {

@@ -1,10 +1,6 @@
 import * as React from "react"
-import { Link, HeadFC, PageProps, HeadProps, graphql } from "gatsby"
+import { PageProps, HeadProps, graphql } from "gatsby"
 import { Page } from "../components/page/page"
-import { NavBar } from "../components/nav/nav"
-import { Title } from "../components/title/title";
-import { Text } from "../components/text/text";
-import { Part } from "../components/part/part";
 import { SEO } from "../components/seo/seo";
 
 const pages: [string, string, number][] = [
@@ -18,11 +14,8 @@ const pages: [string, string, number][] = [
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
     <Page>
-      <NavBar pages={pages} selected="" useLinks />
-      <Part>
-        <Title>404</Title>
-        <Text>Nie odnaleziono strony</Text>
-      </Part>
+        404
+        Nie odnaleziono strony
     </Page>
   )
 }

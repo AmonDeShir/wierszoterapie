@@ -1,82 +1,83 @@
 import React from "react";
 
 
-export const Powrot = () => (
+export const ProblemyOddychaniem = () => (
   <>
-    Wracam z długiej podróży z wielkiego miasta <br/>
-    do domu w mieście z jednym teatrem. <br/>
-    Na tej samej stacji wiszą trzy zegary: <br/>
-    zegar bez czasu <br/>
-    zegar wskazujący inny czas <br/>
-    zegar owinięty czarną wstęgą. <br/>
-    Ale te zatrzymane opóźnione i przekreślone czasy <br/>
-    niczego nie zmieniają. <br/>
-    <br/>
-    Pociąg mknie przez <br/>
-    pola pełne zbóż <br/>
-    pola skoszone <br/>
-    pola przykryte śniegiem. <br/>
-    <br/>
-    Mój uśmiech do ciebie w pociągu <br/>
-    w ułamku sekundy staje się tylko lśnieniem, <br/>
-    które będziesz przywoływać jadąc dalej <br/>
-    przez pola pełne zbóż <br/>
-    pola skoszone <br/>
-    pola przykryte śniegiem. <br/>
-    <br/>
-    Kobieta na warsztatach relaksacji kładzie mi głowę na książki <br/>
-    i mówi: weź oddech mimowolnie, <br/>
-    jak wtedy gdy nie zwracamy uwagi, że żyjemy. <br/>
-    <br/>
-    Biorę oddech <br/>
-    wracam do siebie <br/>
-    przez pola pełne zbóż <br/>
-    pola skoszone <br/>
-    pola przykryte śniegiem. <br/>
+    Wiosną z braku słońca <br />
+    zapalaliśmy wieczorami solną lampkę. <br />
+    W maju spadł śnieg − wrzosowy koc, <br />
+    którym okrywałeś mi stopy <br />
+    zdarł się niemal do przezroczystości. <br />
+    W końcu śnieg stopniał, trawa zaczęła się zielenić. <br />
+    Wróciłam z podróży i zobaczyłam <br />
+    jak korytarzem do naszego pustego mieszkania <br />
+    pewnie zmierzają mrówki. <br />
+    Nawet przyroda miała już dość zimna − <br />
+    widocznie wszystkie żywe stworzenia <br />
+    potrzebują schronienia, ciepła i bliskości. <br />
+    Tamtej wiosny jakby na przekór chłodom <br />
+    doszliśmy do siebie w końcu, <br />
+    tęsknota za ciepłem znalazła <br />
+    swoje ujście, jak mrówki. <br />
+    Wróciliśmy do rozmów o sensie, <br />
+    smog rozwiały nowe układy baryczne, <br />
+    wyszliśmy na powietrze. <br />
+    Tamtej wiosny w końcu wszystko <br />
+    nastało, jak powinno. <br />
+    Tylko nie wiem dlaczego wciąż <br />
+    mam problemy z oddychaniem. <br />
   </>
 );
 
 
 export const PiwoniePokrzywy = () => (
   <>
-    Nie było nas tyle czasu − dom prawie<br/>
-    rozpadł się i zarósł pokrzywami,<br/>
-    nie widać już ścieżki<br/>
-    pomiędzy drzewami w sadzie.<br/>
-    <br/>
-    Czy uda nam się odnaleźć<br/>
-    tamtą rzekę,<br/>
-    gdzie w zapomnianym ogrodzie,<br/>
-    wśród pokrzyw,<br/>
-    przetrwała drobna piwonia?<br/>
+    Nie było nas tyle czasu − dom prawie<br />
+    rozpadł się i zarósł pokrzywami,<br />
+    nie widać już ścieżki<br />
+    pomiędzy drzewami w sadzie.<br />
+    <br />
+    Czy uda nam się odnaleźć<br />
+    tamtą rzekę,<br />
+    gdzie w zapomnianym ogrodzie,<br />
+    wśród pokrzyw,<br />
+    przetrwała drobna piwonia?<br />
   </>
 );
 
-export const ZapisujePoetke = () => (
+export const KodRTG = () => (
   <>
-    początek <br/>
-    zaczynam <br/>
-    ten jedyny świat <br/>
-    osobny <br/>
-    ja jestem pod starą jabłonią przed rodzinnym domem <br/>
-    ty jesteś przy klombie z piwoniami <br/>
-    w kąciku pod jesionem <br/>
-    <br/>
-    ty mówisz: nie byłam, jestem <br/>
-    ja powtarzam: nie byłaś, jesteś <br/>
-    nie byłam, jestem <br/>
-    <br/>
-    dziewczynko w żorżetowej sukience! <br/>
-    <br/>
-    wymykasz się stamtąd <br/>
-    idziesz <br/>
-    wymykam się stamtąd <br/>
-    idę <br/>
-    <br/>
-    spotykamy się tylko ten jeden raz <br/>
-    w tym miejscu <br/>
-    w tym słowie <br/>
-    <br/>
-    (jestem)
+    Leżała ze mną na neurologii <br />
+    w tej samej sali, ale dwa łóżka dalej. <br />
+    Śmiałyśmy się co z nami będzie <br />
+    ile nas zostanie po nas. <br />
+    Pracowała w szpitalu <br />
+    niemal trzydzieści lat <br />
+    sprzątała łazienki i korytarze. <br />
+    Dostałam od niej kod <br />
+    do przejścia służbowego <br />
+    między SOR a oddziałami, <br />
+    żeby niepotrzebnie nie błądzić. <br />
+    To była prosta droga do wyjścia. <br />
+    Kilka dni po tym <br />
+    jak wypisali mnie do domu <br />
+    w jej głowie pękł guz. <br />
+    Powtarzam ten układ cyfr <br />
+    jak mantrę. <br />
+    Co jakiś czas, <br />
+    gdy tylko jestem w szpitalu, <br />
+    sprawdzam drogę do wyjścia. <br />
+    Kod wciąż działa. <br />
+  </>
+);
+
+
+export const KsiazkiNaPolkach = () => (
+  <>
+    Układam książki kolorami. <br />
+    Zastosowanie tej prostej reguły <br />
+    daje namiastkę sensu. <br />
+    Niektóre książki wydają się być <br />
+    dawno nie widzianymi przyjaciółmi. <br />
   </>
 );

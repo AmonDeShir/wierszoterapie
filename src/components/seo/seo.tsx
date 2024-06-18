@@ -9,7 +9,7 @@ interface SEOProps {
 export function SEO({ title, description, url, children }: React.PropsWithChildren<SEOProps>) {
   return (
     <>
-      <title>Patrycja Purgał {title}</title>
+      <title>Wierszoterapie {title}</title>
       <meta name="description" content={description} />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -20,7 +20,11 @@ export function SEO({ title, description, url, children }: React.PropsWithChildr
       <meta name="theme-color" content="#ffffff" />
       <link rel="canonical" href={url} />
 
+      
+
       {children}
     </>
   );
 };
+
+// TODO -- add wierszotapia cover as media link
