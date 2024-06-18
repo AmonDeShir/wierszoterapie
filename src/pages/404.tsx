@@ -5,11 +5,10 @@ import { SEO } from "../components/seo/seo";
 
 const pages: [string, string, number][] = [
   ["KSIĄŻKA", "/#wierszoterapie", 0],
+  ["O MNIE", "/#about-me", 1],
   ["WIERSZE", "/#poems", 2],
   ["KONTAKT", "/#contact", 3],
-  ["O MNIE", "/#about-me", 1],
 ];
-
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (

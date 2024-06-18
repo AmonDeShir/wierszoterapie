@@ -20,8 +20,11 @@ export function SEO({ title, description, url, children }: React.PropsWithChildr
       <meta name="theme-color" content="#ffffff" />
       <link rel="canonical" href={url} />
 
+      
+
       {children}
     </>
   );
 };
+
 // TODO -- add wierszotapia cover as media link
