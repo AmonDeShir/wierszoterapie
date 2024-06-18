@@ -26,14 +26,10 @@ const Image = styled.img`
 
 const Content = styled.div`
   height: 80%;
-  width: 45%;
+  width: 50%;
   display: flex;
   align-items: flex-start;
   max-width: 1500px;
-
-  @media (max-width: 1800px) {
-    width: 50%;
-  }
 
   @media (max-width: 1600px) {
     width: 60%;
@@ -55,7 +51,7 @@ const Description = styled.div`
   font-size: 2.6rem;
   font-family: ${({ theme }) => theme.fonts.text};
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
   min-height: 70vh;
@@ -80,10 +76,7 @@ const Text = styled.div`
   text-align: justify;
   margin-bottom: auto;
   font-size: 2.7rem;
-
-  @media (max-width: 1000px) {
-    padding: 2.5rem 0;
-  }
+  padding: 2.5rem 0;
 `;
 
 const Author = styled.div`

@@ -17,7 +17,7 @@ export const global = css`
     color: #333;
     font-weight: normal;
 
-    @media (max-width: 500px) or (max-height: 500px) {
+    @media (max-width: 500px) {
       font-size: 4px;
     }
   }

@@ -14,17 +14,26 @@ export const Container = styled.nav`
   @media (max-width: 1000px) {
     padding: 0 5px;
     position: static;
+    height: 28rem;
   }
 
-  @media (max-width: 1000px) or (max-height: 500px) {
-    height: 28rem;
+  @media (max-width: 400px) {
+    padding: 0px;
   }
 `;
 
 export const Center = styled.div`
-  width: 45%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1600px) {
+    width: 60%;
+  }
+
+  @media (max-width: 1300px) {
+    width: 80%;
+  }
 `;
 
 export type LinkProps = {
@@ -44,7 +53,7 @@ export const Link = styled(GatsbyLink)<LinkProps>`
   text-align: center;
   white-space: nowrap;
 
-  @media (max-width: 400px) or (max-height: 400px) {
+  @media (max-width: 400px) {
     letter-spacing: 0em;
   }
 
