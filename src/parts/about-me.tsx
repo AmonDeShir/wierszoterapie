@@ -2,48 +2,29 @@ import styled from "@emotion/styled";
 import image from "../images/author.webp"
 import { Wierszoterapie } from "../data/wierszoterapie";
 import { Button } from "../components/button/button";
+import { AboutMeText } from "../data/about-me";
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10vmin 0;
+  width: 100%;
+`;
 
-  @media (max-width: 1000px) {
-    padding: 0px;
-  }
+const ImageContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  width: 50%;
+  height: 100vh;
 `;
 
 const Image = styled.img`
-  width: 50%;
-  height: auto;
-  max-width: 70vmin;
+  width: auto;
+  height: 80%;
+  max-height: 80vmin;
 
   @media (max-width: 1000px) {
     margin-bottom: 10rem;
-  }
-`;
-
-const Content = styled.div`
-  height: 80%;
-  width: 50%;
-  display: flex;
-  align-items: flex-start;
-  max-width: 1500px;
-
-  @media (max-width: 1600px) {
-    width: 60%;
-  }
-
-
-  @media (max-width: 1300px) {
-    width: 80%;
-  }
-
-  @media (max-width: 1000px) {
-    padding: 0 5px;
-    flex-direction: column;
-    align-items: center;
   }
 `;
 
@@ -63,7 +44,7 @@ const Title = styled.div`
   font-weight: 500;
   color: ${({ theme }) => theme.colors.primary};
   font-family: ${({ theme }) => theme.fonts.ui};
-  text-align: left;
+  text-align: center;
   padding-bottom: 1rem;
   margin-bottom: auto;
 `;
@@ -75,39 +56,14 @@ const Text = styled.div`
   padding: 2.5rem 0;
 `;
 
-const Author = styled.div`
-  font-size: 2.6rem;
-  font-weight: bold;
-  color: ${({ theme }) => theme.colors.dark};
-  font-family: ${({ theme }) => theme.fonts.text};
-  text-align: left;
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  align-content: flex-start;
-  align-items: center;
-  padding-top: 1rem;
-`;
-
 export const AboutMe = () => (
   <Container id="about-me">
-    <Content>
+    <ImageContainer>
       <Image src={image} />
       <Description>
-        <Author>Patrycja Purgał</Author>
-        <Title>Wierszoterapie</Title>
-        <Text><Wierszoterapie/></Text>
-        
-        <Buttons>
-          <div>
-            <Button bigger>Zamów książkę z dedykacją</Button>
-          </div>
-        </Buttons>
-        
+        <Title>O mnie</Title>
+        <Text><AboutMeText/></Text>
       </Description>
-    </Content>
+    </ImageContainer>
   </Container>
 );
