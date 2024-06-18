@@ -50,10 +50,6 @@ const Content = styled.div`
 const Description = styled.div`
   font-size: 2.6rem;
   font-family: ${({ theme }) => theme.fonts.text};
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
   min-height: 70vh;
   padding-left: 5rem;
 
