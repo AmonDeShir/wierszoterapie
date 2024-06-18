@@ -17,6 +17,11 @@ export const NavBar = forwardRef<HTMLDivElement, NavProps>(({ pages, selected, u
     e.preventDefault();
     
     if (goToPage) {
+      const item = document.querySelector(target[1]);
+      const pos = (item?.getBoundingClientRect()?.top ?? 0) + window.scrollY;
+
+      window.scrollTo({ top: pos, behavior: "smooth" });
+
       goToPage(target[2])
     }
   } 

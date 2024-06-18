@@ -4,7 +4,7 @@ import  { Link as GatsbyLink }from "gatsby";
 export const Container = styled.nav`
   height: 14rem;
   width: 100%;
-  top: 10px;
+  top: 0px;
   position: sticky;
   display: flex;
   justify-content: center;

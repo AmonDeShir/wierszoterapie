@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import image from "../images/book.webp"
+import image from "../images/author.webp"
 import { Wierszoterapie } from "../data/wierszoterapie";
 import { Button } from "../components/button/button";
 
@@ -92,8 +92,8 @@ const Buttons = styled.div`
   padding-top: 1rem;
 `;
 
-export const Book = () => (
-  <Container id="wierszoterapie">
+export const AboutMe = () => (
+  <Container id="about-me">
     <Content>
       <Image src={image} />
       <Description>
