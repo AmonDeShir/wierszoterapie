@@ -7,13 +7,32 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+
+  @media (max-width: 500px) {
+
+  }
 `;
 
-const ImageContainer = styled.div`
+const Content = styled.div`
   display: flex;
   align-items: flex-end;
   width: 50%;
   height: 100vh;
+
+  @media (max-width: 1600px) {
+    width: 60%;
+  }
+
+
+  @media (max-width: 1300px) {
+    width: 80%;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0 5px;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Image = styled.img`
@@ -56,12 +75,13 @@ const Text = styled.div`
 
 export const AboutMe = () => (
   <Container id="about-me">
-    <ImageContainer>
+    <Content>
       <Image src={image} />
+
       <Description>
         <Title>O mnie</Title>
         <Text><AboutMeText/></Text>
       </Description>
-    </ImageContainer>
+    </Content>
   </Container>
 );
