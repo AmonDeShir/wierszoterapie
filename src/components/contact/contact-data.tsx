@@ -30,7 +30,7 @@ type SocialMediaProps = {
 
 export const SocialMedia = ({facebook, instagram, size}: SocialMediaProps) => (
   <IconsFlex>
-    <a href={facebook}><FaFacebookSquare color="#333" size={size} /> </a>
-    <a href={instagram}><FaInstagramSquare color="#333" size={size} /> </a>
+    <a target="_blank" href={facebook}><FaFacebookSquare color="#333" size={size} /> </a>
+    <a target="_blank" href={instagram}><FaInstagramSquare color="#333" size={size} /> </a>
   </IconsFlex>
 );

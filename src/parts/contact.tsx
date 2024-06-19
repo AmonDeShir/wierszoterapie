@@ -7,7 +7,6 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 10vmin;
   height: 100vh;
 
   @media (max-width: 1000px) {
@@ -48,7 +47,7 @@ export const Contact = () => (
       <SocialMedia
         size="15rem"
         facebook="https://www.facebook.com/profile.php?id=61558898596972"
-        instagram=""
+        instagram="https://www.instagram.com/patrycjapurgal_autorka?igsh=MXg1eWVhdGZqb3ZmMg=="
       />
     </TopAuto>
 

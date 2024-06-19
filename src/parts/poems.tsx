@@ -30,7 +30,6 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10vmin;
   height: 100vh;
 
   @media (max-width: 1000px) {

@@ -10,6 +10,7 @@ export const Container = styled.nav`
   justify-content: center;
   align-items: center;
   background-color: ${({theme}) => theme.colors.secondary};
+  z-index: 200;
 
   @media (max-width: 1000px) {
     padding: 0 5px;
