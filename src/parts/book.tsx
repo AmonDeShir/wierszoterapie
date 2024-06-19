@@ -103,7 +103,7 @@ export const Book = () => (
         
         <Buttons>
           <div>
-            <Button bigger>Zamów książkę z dedykacją</Button>
+            <Button bigger href="/order">Zamów książkę z dedykacją</Button>
           </div>
         </Buttons>
         
