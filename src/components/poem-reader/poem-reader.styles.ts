@@ -87,10 +87,11 @@ export const Icon = styled.div<{mobile?: boolean}>`
     transform: scale(0.9);
   }
 
-  display: ${({ mobile }) => mobile ? "none" : "block" };
+  display: block;
 
-  @media (max-width: 450px) or (max-height: 450px) {
-    display: ${({ mobile }) => mobile ? "block" : "none" };
+  @media (max-width: 300px) {
+    width: 2rem;
+    height: 2rem;
   }
 `;
 

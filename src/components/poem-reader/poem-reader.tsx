@@ -74,6 +74,10 @@ export const PoemReader = ({ poems }: Props) => {
     @media (max-width: 800px) {
       padding: 0 10vw;
     }
+
+    @media (max-width: 300px) {
+      padding: 0 2px;
+    }
   `;
 
   return (
@@ -91,16 +95,6 @@ export const PoemReader = ({ poems }: Props) => {
       
       <PoemContainer ref={ref}>
         <Poem poem={poems[selected]} />
-
-        <MobileIcons>
-          <Icon mobile>
-            <FaChevronLeft color="#333" size="100%" onClick={decrement} />
-          </Icon>
-
-          <Icon mobile>
-            <FaChevronRight color="#333" size="100%" onClick={increment} />
-          </Icon>
-        </MobileIcons>
       </PoemContainer>
     </Container>
   );
