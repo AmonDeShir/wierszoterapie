@@ -7,22 +7,17 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-
-  @media (max-width: 500px) {
-
-  }
 `;
 
 const Content = styled.div`
   display: flex;
   align-items: flex-end;
   width: 50%;
-  height: 100vh;
+  min-height: 100vh;
 
   @media (max-width: 1600px) {
     width: 60%;
   }
-
 
   @media (max-width: 1300px) {
     width: 80%;
@@ -40,8 +35,9 @@ const Image = styled.img`
   height: 80%;
   max-height: 80vmin;
 
-  @media (max-width: 1000px) {
-    margin-bottom: 10rem;
+  @media (max-height: 400px) and (orientation:landscape) {
+    height: 90%;
+    max-height: 85vmin;
   }
 `;
 
@@ -64,6 +60,10 @@ const Title = styled.div`
   text-align: center;
   padding-bottom: 1rem;
   margin-bottom: auto;
+
+  @media (max-width: 1000px) {
+    padding: 1rem 0rem;
+  }
 `;
 
 const Text = styled.div`
@@ -71,6 +71,10 @@ const Text = styled.div`
   margin-bottom: auto;
   font-size: 2.7rem;
   padding: 2.5rem 0;
+
+  @media (max-width: 1000px) {
+    padding-top: 0rem;
+  }
 `;
 
 export const AboutMe = () => (
