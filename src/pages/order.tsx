@@ -99,7 +99,7 @@ const Buttons = styled.div`
   align-items: center;
 `;
 
-const NotFoundPage: React.FC<PageProps> = () => {
+const OrderPage: React.FC<PageProps> = () => {
   return (
     <Page>
         <NavBar selected="" pages={pages} useLinks />
@@ -127,7 +127,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
   )
 }
 
-export default NotFoundPage
+export default OrderPage
 
 interface DataType {
   site: {
