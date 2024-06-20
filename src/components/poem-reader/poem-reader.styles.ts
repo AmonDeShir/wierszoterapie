@@ -1,23 +1,23 @@
 import styled from "@emotion/styled";
+import { PropsWithChildren } from "react";
 
 export const Container = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
-  padding: 0 10rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 `;
 
-export const PoemContainer = styled.article`
-`
-
 export const Author = styled.p`
   display: block;
   text-align: left;
   font-size: 2.6rem;
-  font-style: italic;
+  font-style: normal;
+  font-weight: bold;
   padding-bottom: 2rem;
 `;
 
@@ -27,13 +27,26 @@ export const Dedication = styled.p`
   font-size: 2.6rem;
 `;
 
+export const PoemContainer = styled.article`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -2;
+`;
 
 export const Title = styled.h1`
   display: block;
   text-align: left;
   font-weight: bold;
   font-size: 4rem;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
   color: ${({ theme }) => theme.colors.primary};
   font-family: ${({ theme }) => theme.fonts.text};
 `;
@@ -41,10 +54,10 @@ export const Title = styled.h1`
 export const Description = styled.p`
   display: block;
   text-align: right;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 2.6rem;
   padding-top: 2rem;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.dark};
   font-family: ${({ theme }) => theme.fonts.text};
 `;
 
@@ -74,9 +87,27 @@ export const Icon = styled.div<{mobile?: boolean}>`
     transform: scale(0.9);
   }
 
-  display: ${({ mobile }) => mobile ? "none" : "block" };
+  display: block;
 
-  @media (max-width: 450px) or (max-height: 450px) {
-    display: ${({ mobile }) => mobile ? "block" : "none" };
+  @media (max-width: 300px) {
+    width: 2rem;
+    height: 2rem;
   }
 `;
+
+export const TextContainer = styled.div`
+  position: relative;
+  overflow-y: auto;
+`;
+
+type TextProps = PropsWithChildren<{
+  width?: string;
+  align?: "start" | "end" | "left" | "right" | "center" | "justify" | "match-parent"
+}>;
+
+export const Text = styled.p<TextProps>`
+  display: block;
+  text-align: ${({ align }) => align ?? "center"};
+  font-size: 2.6rem;
+  max-width: ${({ width }) => width ?? "initial" };
+`

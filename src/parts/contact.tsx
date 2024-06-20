@@ -1,24 +1,59 @@
-import { PropsWithChildren } from "react";
-import { Part, PartProps } from "../components/part/part";
-import { Title } from "../components/title/title";
 import { EmailPhone, SocialMedia } from "../components/contact/contact-data";
-import { WithTitle } from "../components/with-title/with-title";
+import { Footer } from "../components/footer/footer";
+import styled from "@emotion/styled";
 
-export const Contact = ({children, hasNav }: PropsWithChildren<PartProps>) => (
-  <Part hasNav={hasNav}>
-    {children}
-    
-    <EmailPhone
-      phone="+48 882 104 742"
-      email="kontakt@patrycjapurgal.pl"
-    />
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 
-    <WithTitle title="Social Media">
-      <SocialMedia
-        size="30rem"
-        facebook="facebook.com"
-        instagram="instagram.com"
+  @media (max-width: 1000px) {
+    padding: 0px;
+  }
+`;
+
+const Title = styled.h1`
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  text-align: center;
+  font-size: 4rem;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
+  color: ${({ theme }) => theme.colors.primary};
+  font-family: ${({ theme }) => theme.fonts.text};
+`;
+
+const TopAuto = styled.div`
+  margin-top: auto;
+`;
+
+const TopAutoFooter = styled(Footer)`
+  margin-top: auto;
+`;
+
+export const Contact = () => (
+  <Container id="contact">
+    <TopAuto>
+      <EmailPhone
+        email="wierszoterapie@gmail.com"
       />
-    </WithTitle>
-  </Part>
+    </TopAuto>
+
+    <TopAuto>
+      <Title>Social Media</Title>
+      <SocialMedia
+        size="15rem"
+        facebook="https://www.facebook.com/profile.php?id=61558898596972"
+        instagram="https://www.instagram.com/patrycjapurgal_autorka?igsh=MXg1eWVhdGZqb3ZmMg=="
+      />
+    </TopAuto>
+
+    <TopAutoFooter>
+      {`Copyright© Patrycja Purgał-Wilińska, 2024`.toUpperCase()}
+      <p style={{display: "block"}} >Created by <a style={{ color: "#fff", textDecoration: "none" }} href="https://www.purgal.xyz">Dominik Purgał</a></p>
+    </TopAutoFooter>
+  </Container>
 );

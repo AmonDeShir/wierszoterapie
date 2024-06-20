@@ -1,24 +1,18 @@
 import * as React from "react"
 import { graphql, type HeadFC, type HeadProps, type PageProps } from "gatsby"
-import { NavBar } from "../components/nav/nav"
 import { Page } from "../components/page/page"
-import { Book } from "../parts/book"
-import { Poems } from "../parts/poems"
-import { Contact } from "../parts/contact"
-import { AboutMe } from "../parts/about-me"
-import { WithNavigation } from "../components/with-nav/with-nav"
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all"
-import ReactPageScroller from 'react-page-scroller';
 import { SEO } from "../components/seo/seo"
-
-gsap.registerPlugin(ScrollTrigger) 
+import { Book } from "../parts/book";
+import { NavBar } from "../components/nav/nav";
+import { AboutMe } from "../parts/about-me";
+import { Poems } from "../parts/poems";
+import { Contact } from "../parts/contact";
 
 const pages: [string, string, number][] = [
   ["KSIĄŻKA", "#wierszoterapie", 0],
+  ["O MNIE", "#about-me", 1],
   ["WIERSZE", "#poems", 2],
   ["KONTAKT", "#contact", 3],
-  ["O MNIE", "#about-me", 1],
 ];
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -29,30 +23,12 @@ const IndexPage: React.FC<PageProps> = () => {
   };
 
   return (
-
     <Page>
-      <ReactPageScroller
-        pageOnChange={handlePageChange}
-        customPageNumber={page}
-        containerHeight={"100lvh"}
-        containerWidth={"100lvw"}
-      >
-          <WithNavigation selected={"#wierszoterapie"} pages={pages} id="wierszoterapie" goToPage={setPage}>
-            <Book hasNav />
-          </WithNavigation>
-
-          <WithNavigation selected={"#about-me"} pages={pages} id="about-me" goToPage={setPage}>
-            <AboutMe hasNav />
-          </WithNavigation>
-
-          <WithNavigation selected={"#poems"} pages={pages} id="poems" goToPage={setPage}>
-            <Poems hasNav />
-          </WithNavigation>
-
-          <WithNavigation selected={"#contact"} pages={pages} id="contact" goToPage={setPage}>
-            <Contact hasNav />
-          </WithNavigation>
-        </ReactPageScroller>
+      <NavBar selected={pages[page][1]} pages={pages} goToPage={handlePageChange} />
+      <Book />
+      <AboutMe />
+      <Poems />
+      <Contact />
     </Page>
   )
 }
@@ -66,7 +42,6 @@ interface DataType {
     };
   };
 };
-
 
 export function Head({ data, location }: HeadProps<DataType>) {
   const siteUrl = data.site.siteMetadata.siteUrl;

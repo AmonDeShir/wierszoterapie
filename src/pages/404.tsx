@@ -1,28 +1,39 @@
 import * as React from "react"
-import { Link, HeadFC, PageProps, HeadProps, graphql } from "gatsby"
+import { PageProps, HeadProps, graphql } from "gatsby"
 import { Page } from "../components/page/page"
-import { NavBar } from "../components/nav/nav"
-import { Title } from "../components/title/title";
-import { Text } from "../components/text/text";
-import { Part } from "../components/part/part";
 import { SEO } from "../components/seo/seo";
+import { NavBar } from "../components/nav/nav";
+import styled from "@emotion/styled";
 
 const pages: [string, string, number][] = [
   ["KSIĄŻKA", "/#wierszoterapie", 0],
+  ["O MNIE", "/#about-me", 1],
   ["WIERSZE", "/#poems", 2],
   ["KONTAKT", "/#contact", 3],
-  ["O MNIE", "/#about-me", 1],
 ];
 
+const Text = styled.div`
+  text-align: justify;
+  margin-bottom: auto;
+  font-size: 2.7rem;
+  padding: 2.5rem 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
     <Page>
-      <NavBar pages={pages} selected="" useLinks />
-      <Part>
-        <Title>404</Title>
-        <Text>Nie odnaleziono strony</Text>
-      </Part>
+      <NavBar selected="" pages={pages} useLinks />
+      <Text>
+        404
+        Nie odnaleziono strony
+      </Text>
     </Page>
   )
 }
