@@ -54,12 +54,11 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
-      - uses: Nats-ji/delete-old-releases@v1
+      - uses: dev-drprasad/delete-older-releases@v0.3.4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          keep-count: 1
-          keep-old-minor-releases: false
-          keep-old-minor-releases-count: 1
+          keep_latest: 0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Create Release
         id: create_release
