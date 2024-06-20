@@ -7,9 +7,10 @@ import styled from "@emotion/styled";
 import React from "react";
 
 export type PoemData = {
-  text: JSX.Element,
-  title?: string,
-  author?: string,
+  _id: string,
+  text: string,
+  title: string,
+  author: string,
   date?: string,
   dedication?: string,
 }
@@ -94,7 +95,7 @@ export const PoemReader = ({ poems }: Props) => {
       </PCIcons>
       
       <PoemContainer ref={ref}>
-        <Poem poem={poems[selected]} />
+        <Poem key={poems[selected]._id} poem={poems[selected]} />
       </PoemContainer>
     </Container>
   );
