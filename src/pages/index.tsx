@@ -65,5 +65,13 @@ export const query = graphql`
         siteUrl
       }
     }
+    getPoems {
+      _id
+      title
+      author
+      date
+      dedication
+      text
+    }
   }
 `;
