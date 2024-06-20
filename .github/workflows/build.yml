@@ -5,6 +5,10 @@ on:
   push:
     branches: main
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   build:
     name: Build site
@@ -44,14 +48,13 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Download all artifacts
+      - name: Download all artifacts
         uses: actions/download-artifact@v2
-      -
-        name: Display structure of downloaded files
+      
+      - name: Display structure of downloaded files
         run: ls -R
-      -
-        name: Create Release
+      
+      - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
@@ -60,9 +63,9 @@ jobs:
           tag_name: ${{ github.sha }}
           release_name: Wierszoterapie ${{ github.sha }}
           draft: true
-          prerelease: false'
-      - 
-        name: Upload
+          prerelease: false
+      
+      - name: Upload
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
