@@ -53,6 +53,13 @@ jobs:
       
       - name: Display structure of downloaded files
         run: ls -R
+
+      - uses: Nats-ji/delete-old-releases@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          keep-count: 1
+          keep-old-minor-releases: false
+          keep-old-minor-releases-count: 1
       
       - name: Create Release
         id: create_release
@@ -60,9 +67,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.sha }}
-          release_name: Wierszoterapie ${{ github.sha }}
-          draft: true
+          tag_name: latest
+          release_name: Wierszoterapie
+          draft: false
           prerelease: false
       
       - name: Upload
