@@ -15,7 +15,7 @@ const pages: [string, string, number][] = [
   ["KONTAKT", "#contact", 3],
 ];
 
-const IndexPage: React.FC<PageProps> = () => {
+const IndexPage: React.FC<PageProps<DataType>> = ({ data }) => {
   const [page, setPage] = React.useState(0);
 
   const handlePageChange = (page: number) => {
@@ -27,7 +27,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <NavBar selected={pages[page][1]} pages={pages} goToPage={handlePageChange} />
       <Book />
       <AboutMe />
-      <Poems />
+      <Poems poems={data.swapi.getPoems} />
       <Contact />
     </Page>
   )
@@ -39,8 +39,18 @@ interface DataType {
   site: {
     siteMetadata: {
       siteUrl: string;
-    };
-  };
+    }
+  },
+  swapi: {
+    getPoems: {
+      _id: string,
+      title: string,
+      author: string,
+      text: string,
+      date?: string,
+      dedication?: string,
+    }[]
+  }
 };
 
 export function Head({ data, location }: HeadProps<DataType>) {
@@ -65,13 +75,15 @@ export const query = graphql`
         siteUrl
       }
     }
-    getPoems {
-      _id
-      title
-      author
-      date
-      dedication
-      text
+    swapi {
+      getPoems {
+        _id
+        title
+        author
+        date
+        dedication
+        text
+      }
     }
   }
 `;

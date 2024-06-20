@@ -13,6 +13,14 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-emotion", 
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "SWAPI",
+        fieldName: "swapi",
+        url: "https://steambuddy.pl/api/graphql",
+      },
+    },
   ]
 };
 

@@ -110,4 +110,5 @@ export const Text = styled.p<TextProps>`
   text-align: ${({ align }) => align ?? "center"};
   font-size: 2.6rem;
   max-width: ${({ width }) => width ?? "initial" };
+  white-space: pre-line;
 `
