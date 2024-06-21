@@ -19,7 +19,7 @@ type Props = PropsWithChildren<{
   poems: PoemData[],
 }>
 
-const Poem = ({poem}: { poem: PoemData }) => (
+export const Poem = ({poem}: { poem: PoemData }) => (
   <div key={poem.title}>
     <Author>{poem.author}</Author>
     <Title>{poem.title}</Title>
