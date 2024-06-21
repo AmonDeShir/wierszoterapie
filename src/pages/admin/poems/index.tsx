@@ -53,12 +53,26 @@ const PoemsPage: React.FC<PageProps> = () => {
       .then(setPoems) 
   }, []);
 
+  const handleDelete = (poem: PoemData) => {
+    if (confirm(`Czy na pewno chcesz usunąć wiersz "${poem.title}"?`)) {
+      setSelected(Math.max(0, selected - 1));
+      setPoems(poems => poems.filter(({ _id }) => _id !== poem._id));
+
+      (async () => {
+        await fetch(`${API_URL}/poems/${poem._id}`, { method: "delete" });
+        await fetch(`${API_URL}/poems`)
+          .then(data => data.json())
+          .then(setPoems) 
+      })();
+    }
+  };
+
   return (
     <Page>
         <Center>
           <Title>Wiersze</Title>
           <div>
-            {poems?.map(poem => (
+            {poems.map(poem => (
               <PoemLink 
                 key={poem._id} 
                 selected={poems[selected]._id === poem._id}
@@ -76,7 +90,7 @@ const PoemsPage: React.FC<PageProps> = () => {
               <Poem key={poems[selected]._id} poem={poems[selected]} />
               <Buttons>
                 <div><Button href={`/admin/poems/edit/${poems[selected]._id}`}>Edytuj</Button></div>
-                <div><SubmitButton>Usuń</SubmitButton></div>
+                <div><SubmitButton onClick={() => handleDelete(poems[selected])}>Usuń</SubmitButton></div>
               </Buttons>
             </PoemContainer>
           ))}

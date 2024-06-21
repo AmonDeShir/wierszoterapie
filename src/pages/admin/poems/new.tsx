@@ -259,10 +259,7 @@ const PoemsPage: React.FC<PageProps> = () => {
       method: "post", 
       body: JSON.stringify(poem), 
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'}
-    }).then(() => {
-      setSaving(false);
-      window.location.pathname = "/admin/poems";
-    });
+    }).then(() => window.location.pathname = "/admin/poems");
   };
 
   const handleCancel = () => {

@@ -276,10 +276,7 @@ const PoemsPage: React.FC<PageProps> = () => {
       method: "put",
       body: JSON.stringify(data), 
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'}
-    }).then(() => {
-      setWait(undefined);
-      window.location.pathname = "/admin/poems";
-    });
+    }).then(() => window.location.pathname = "/admin/poems");
   };
 
   const handleCancel = () => {
