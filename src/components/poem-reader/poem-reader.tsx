@@ -13,6 +13,7 @@ export type PoemData = {
   author: string,
   date?: string,
   dedication?: string,
+  updated_at?: number,
 }
 
 type Props = PropsWithChildren<{

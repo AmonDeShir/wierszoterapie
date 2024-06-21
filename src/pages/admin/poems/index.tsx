@@ -6,6 +6,7 @@ import { Poem, PoemData, PoemReader } from "../../../components/poem-reader/poem
 import { PoemContainer } from '../../../components/poem-reader/poem-reader.styles';
 import { Button, SubmitButton } from '../../../components/button/button';
 import { API_URL } from '../../../data/api';
+import { ChangesDetector, ChangesDetectorBar } from '../../../components/changes-detector/changes-detector';
 
 const Title = styled.div`
   font-size: 4rem;
@@ -21,6 +22,7 @@ const Center = styled.div`
   padding: 2rem;
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -43,7 +45,15 @@ const Buttons = styled.div`
   align-items: center;
 `; 
 
-const PoemsPage: React.FC<PageProps> = () => {
+const BackButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: auto;
+`;
+
+const PoemsPage: React.FC<PageProps<DataType>> = ({ data }) => {
   const [poems, setPoems] = useState<PoemData[]>([]);
   const [selected, setSelected] = useState(0);
 
@@ -70,8 +80,10 @@ const PoemsPage: React.FC<PageProps> = () => {
   return (
     <Page>
         <Center>
-          <Title>Wiersze</Title>
+          <ChangesDetectorBar data={data} />
+          <div><Title>Wiersze</Title></div>
           <div>
+            
             {poems.map(poem => (
               <PoemLink 
                 key={poem._id} 
@@ -86,7 +98,7 @@ const PoemsPage: React.FC<PageProps> = () => {
           </div>
           
           {(poems[selected] && (
-            <PoemContainer>
+            <PoemContainer noAbsolute style={{marginTop: "5rem"}}>
               <Poem key={poems[selected]._id} poem={poems[selected]} />
               <Buttons>
                 <div><Button href={`/admin/poems/edit/${poems[selected]._id}`}>Edytuj</Button></div>
@@ -94,6 +106,10 @@ const PoemsPage: React.FC<PageProps> = () => {
               </Buttons>
             </PoemContainer>
           ))}
+
+          <BackButton>
+            <div><Button href='/admin' bigger>Panel Administratora</Button></div>
+          </BackButton>
         </Center>
     </Page>
   )
@@ -108,3 +124,23 @@ export function Head({ location }: HeadProps) {
       <html lang="pl" />
   );
 }
+
+interface DataType {
+  swapi: {
+    getPoems: {
+      _id: string,
+      updated_at: number,
+    }[]
+  }
+};
+
+export const query = graphql`
+  {
+    swapi {
+      getPoems {
+        _id
+        updated_at
+      }
+    }
+  }
+`;

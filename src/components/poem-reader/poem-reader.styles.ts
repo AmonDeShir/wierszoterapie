@@ -27,8 +27,8 @@ export const Dedication = styled.p`
   font-size: 2.6rem;
 `;
 
-export const PoemContainer = styled.article`
-  position: absolute;
+export const PoemContainer = styled.article<{ noAbsolute?: boolean }>`
+  position: ${({noAbsolute}) => noAbsolute ? "static" : "absolute"};
   top: 0;
   bottom: 0;
   right: 0;
@@ -37,7 +37,7 @@ export const PoemContainer = styled.article`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: -2;
+  z-index: ${({noAbsolute}) => noAbsolute ? "1" : "-2"};
 `;
 
 export const Title = styled.h1`

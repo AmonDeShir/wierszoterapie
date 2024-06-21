@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
-export const Button = styled.a<{ bigger?: boolean }>`
-  --width: ${({ bigger }) => bigger ? "42.5rem" : "25rem" };
+export const Button = styled.a<{ bigger?: boolean, medium?: boolean }>`
+  --width: ${({ bigger, medium }) => bigger ? "42.5rem" : medium ? "30rem" : "25rem" };
   cursor: pointer;
   display: block;
   position: relative;
@@ -18,9 +18,10 @@ export const Button = styled.a<{ bigger?: boolean }>`
   margin-top: 10px;
   margin-left: auto;
   transition: transform 0.25s, color 0.5s, background-color 0.5s, border-color 0.5s;
+  z-index: 0;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: transparent;
     border-color: ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.primary};
     transform: scale(0.9);
@@ -28,20 +29,20 @@ export const Button = styled.a<{ bigger?: boolean }>`
 
   &::before {
     content: " ";
-    z-index: -1;
     position: absolute;
     background-color: ${({ theme }) => theme.colors.primary};
-    border: 2px solid ${({ theme }) => theme.colors.secondary};
+    border: 2px solid transparent;
     width: var(--width);
     height: 8rem;
     border-radius: 10rem;
     transition: transform 0.25s, color 0.5s, background-color 0.5s, border-color 0.5s;
+    z-index: -1;
   }
   
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
     &::before {
-      background-color: ${({ theme }) => theme.colors.secondary};
+      background-color: transparent;
       border-color: ${({ theme }) => theme.colors.primary};
       transform: scale(0.9);
     }
@@ -72,6 +73,7 @@ export const SubmitButton = styled.button<{ bigger?: boolean }>`
   transition: transform 0.25s, color 0.5s, background-color 0.5s, border-color 0.5s;
   background: none;
   border: none;
+  z-index: 0;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary};
