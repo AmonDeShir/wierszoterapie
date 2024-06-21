@@ -75,7 +75,7 @@ const PoemsPage: React.FC<PageProps> = () => {
             <PoemContainer>
               <Poem key={poems[selected]._id} poem={poems[selected]} />
               <Buttons>
-                <div><Button href={`/admin/poems/edit?poem=${poems[selected]._id}`}>Edytuj</Button></div>
+                <div><Button href={`/admin/poems/edit/${poems[selected]._id}`}>Edytuj</Button></div>
                 <div><SubmitButton>Usuń</SubmitButton></div>
               </Buttons>
             </PoemContainer>
