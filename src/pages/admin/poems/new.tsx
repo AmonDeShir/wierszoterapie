@@ -125,10 +125,10 @@ const Column = styled.div`
   width: 50%;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   padding-left: 2rem;
-
+  
   @media (max-width: 600px) {
     padding-top: 10rem;
 
@@ -212,18 +212,34 @@ const PoemsPage: React.FC<PageProps> = () => {
   const handleLineClick = (id: string) => {
     if (id === title) {
       setTitle(undefined);
+
+      if (tool === 1) {
+        return;
+      }
     }
 
     if (id === dedication) {
       setDedication(undefined);
+
+      if (tool === 2) {
+        return;
+      }
     }
 
     if (id === location) {
       setLocation(undefined);
+
+      if (tool === 3) {
+        return;
+      }
     }
 
     if (removed.includes(id)) {
       setRemoved(ids => ids.filter(item => item != id));
+
+      if (tool === 4) {
+        return;
+      }
     }
 
     switch(tool) {
