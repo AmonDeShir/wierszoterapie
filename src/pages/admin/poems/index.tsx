@@ -60,7 +60,7 @@ const PoemsPage: React.FC<PageProps<DataType>> = ({ data }) => {
   useEffect(() => { 
     fetch(`${API_URL}/poems`)
       .then(data => data.json())
-      .then(setPoems) 
+      .then(setPoems)
   }, []);
 
   const handleDelete = (poem: PoemData) => {
@@ -80,10 +80,9 @@ const PoemsPage: React.FC<PageProps<DataType>> = ({ data }) => {
   return (
     <Page>
         <Center>
-          <ChangesDetectorBar data={data} />
+          <ChangesDetectorBar data={data} forceUpdate={poems} />
           <div><Title>Wiersze</Title></div>
           <div>
-            
             {poems.map(poem => (
               <PoemLink 
                 key={poem._id} 

@@ -35,6 +35,7 @@ const Text = styled.div`
 `;
 
 type Props = {
+  forceUpdate?: any,
   actualText?: string,
   needUpdateText?: string,
   hideWhenNotNeeded?: boolean,
@@ -49,7 +50,7 @@ type Props = {
   }
 }
 
-export const ChangesDetector = ({ data, showNavButton, hideWhenNotNeeded, actualText, needUpdateText }: Props) => {
+export const ChangesDetector = ({ data, showNavButton, hideWhenNotNeeded, actualText, needUpdateText, forceUpdate = 0 }: Props) => {
   const [needUpdate, setNeedUpdate] = useState(false);
 
   useEffect(() => { 
@@ -71,7 +72,7 @@ export const ChangesDetector = ({ data, showNavButton, hideWhenNotNeeded, actual
           }
         } 
       });
-  }, []);
+  }, [forceUpdate]);
 
   if (needUpdate) {
     return (
@@ -91,10 +92,11 @@ export const ChangesDetector = ({ data, showNavButton, hideWhenNotNeeded, actual
   );
 };
 
-export const ChangesDetectorBar = ({ data }: Omit<Props, "needUpdateText" | "hideWhenNotNeeded" | "showNavButton" | "actualText">) => (
+export const ChangesDetectorBar = ({ data, forceUpdate }: Omit<Props, "needUpdateText" | "hideWhenNotNeeded" | "showNavButton" | "actualText">) => (
   <Background>
     <ChangesDetector 
       data={data}  
+      forceUpdate={forceUpdate}
       needUpdateText="Wykryto zmiany w bazie danych. Przejdź do panelu aktualizacji aby wygenerować nową wersje strony"
       hideWhenNotNeeded
       showNavButton
