@@ -19,17 +19,18 @@ const IndexPage: React.FC<PageProps<DataType>> = () => {
   const [page, setPage] = React.useState(0);
 
   const data = useStaticQuery<DataType>(graphql`
-    swapi {
-      getPoems {
-        _id
-        title
-        author
-        date
-        dedication
-        text
-        updated_at
+    query SWAPI {
+      swapi {
+        getPoems {
+          _id
+          title
+          author
+          date
+          dedication
+          text
+          updated_at
+        }
       }
-    }
   `);
     
   const handlePageChange = (page: number) => {
