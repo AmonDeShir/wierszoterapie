@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import { Page } from "../../components/page/page";
 import { Poem, PoemData, PoemReader } from "../../components/poem-reader/poem-reader";
 import { Button, SubmitButton } from '../../components/button/button';
-import { API_URL } from '../../data/api';
+import { API_URL, request } from '../../api';
 import { PoemContainer } from '../../components/poem-reader/poem-reader.styles';
 import { ChangesDetector } from '../../components/changes-detector/changes-detector';
 
@@ -103,11 +103,8 @@ const UpdatePage: React.FC<PageProps<DataType>> = ({ data }) => {
   };
 
   const updateProgress = () => {
-    fetch(`${API_URL}/frontend/progress/${jobID}`)
-      .then(data => data.json())
-      .then((data) => {
-        setProgress(data);
-      })
+    request<Progress>(`/frontend/progress/${jobID}`)
+      .then(({data}) => setProgress(data))
   }
 
   useEffect(() => {
@@ -116,9 +113,8 @@ const UpdatePage: React.FC<PageProps<DataType>> = ({ data }) => {
     }
 
     if (updateState === 1) {
-      fetch(`${API_URL}/frontend/build`, { method: "post" })
-        .then(data => data.json()) 
-        .then((data) => setJobID(data.id))
+      request(`/frontend/build`, "post")
+        .then(({data}) => setJobID(data.id))
         .then(() => setUpdateState(2));
     }
 
@@ -127,7 +123,7 @@ const UpdatePage: React.FC<PageProps<DataType>> = ({ data }) => {
     }
 
     if (updateState === 3) {
-      fetch(`${API_URL}/frontend/replace`, { method: "post" })
+      request(`/frontend/replace`, "post")
         .then(() => setUpdateState(4));
     }
   }, [updateState]);

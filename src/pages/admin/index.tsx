@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PageProps, HeadProps, graphql } from "gatsby"
 import styled from "@emotion/styled";
 import { Page } from "../../components/page/page";
-import { Button } from '../../components/button/button';
+import { Button, SubmitButton } from '../../components/button/button';
 import { ChangesDetector, ChangesDetectorBar } from '../../components/changes-detector/changes-detector';
+import { request } from '../../api';
 
 const Title = styled.div`
   font-size: 4rem;
@@ -26,6 +27,15 @@ const Center = styled.div`
 `;
 
 const AdminPanelPage: React.FC<PageProps<DataType>> = ({ data }) => {
+  const handleLogout = () => {
+    request("/auth/logout", "post")
+      .then(() => window.location.pathname = '/admin/login')
+  }
+
+  useEffect(() => {
+    request(`/poems`);
+  })
+
   return (
     <Page>
         <Center>
@@ -33,6 +43,7 @@ const AdminPanelPage: React.FC<PageProps<DataType>> = ({ data }) => {
           <Title>Panel Administratora</Title>
           <div><Button href='/admin/poems' bigger>Edytor Wierszy</Button></div>
           <div><Button href='/admin/update' bigger>Panel Aktualizacji</Button></div>
+          <div><SubmitButton onClick={handleLogout} bigger>Logout</SubmitButton></div>
         </Center>
     </Page>
   )

@@ -8,7 +8,7 @@ import { nanoid } from 'nanoid'
 import { Poem, PoemData } from '../../../components/poem-reader/poem-reader';
 import { Button } from '../../../components/button/button';
 import { css } from '@emotion/react';
-import { API_URL } from '../../../data/api';
+import { API_URL, request } from '../../../api';
 
 const Label = styled.label`
   display: block;
@@ -255,11 +255,8 @@ const PoemsPage: React.FC<PageProps> = () => {
     setSaving(true);
     const {_id, ...poem} = data;
 
-    fetch(`${API_URL}/poems`, { 
-      method: "post", 
-      body: JSON.stringify(poem), 
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'}
-    }).then(() => window.location.pathname = "/admin/poems");
+    request(`/poems`, "post", poem)
+      .then(() => window.location.pathname = "/admin/poems");
   };
 
   const handleCancel = () => {

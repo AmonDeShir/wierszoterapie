@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { PageProps, HeadProps, graphql } from "gatsby"
 import styled from "@emotion/styled";
 import { Page } from "../../../components/page/page";
-import { Poem, PoemData, PoemReader } from "../../../components/poem-reader/poem-reader";
+import { Poem, PoemData } from "../../../components/poem-reader/poem-reader";
 import { PoemContainer } from '../../../components/poem-reader/poem-reader.styles';
 import { Button, SubmitButton } from '../../../components/button/button';
-import { API_URL } from '../../../data/api';
-import { ChangesDetector, ChangesDetectorBar } from '../../../components/changes-detector/changes-detector';
+import { API_URL, request } from '../../../api';
+import { ChangesDetectorBar } from '../../../components/changes-detector/changes-detector';
 
 const Title = styled.div`
   font-size: 4rem;
@@ -58,9 +58,8 @@ const PoemsPage: React.FC<PageProps<DataType>> = ({ data }) => {
   const [selected, setSelected] = useState(0);
 
   useEffect(() => { 
-    fetch(`${API_URL}/poems`)
-      .then(data => data.json())
-      .then(setPoems)
+    request(`/poems`)
+      .then(({ data }) => setPoems(data))
   }, []);
 
   const handleDelete = (poem: PoemData) => {

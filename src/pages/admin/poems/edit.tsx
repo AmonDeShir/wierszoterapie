@@ -1,14 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
-import { PageProps, HeadProps, graphql } from "gatsby"
+import { PageProps, HeadProps } from "gatsby"
 import styled from "@emotion/styled";
 import { Page } from "../../../components/page/page";
-import { FileUploader } from 'react-drag-drop-files';
-import { extractRawText } from "mammoth/mammoth.browser";
 import { nanoid } from 'nanoid'
 import { Poem, PoemData } from '../../../components/poem-reader/poem-reader';
 import { Button } from '../../../components/button/button';
 import { css } from '@emotion/react';
-import { API_URL } from '../../../data/api';
+import { API_URL, request } from '../../../api';
 
 const Label = styled.label`
   display: block;
@@ -212,10 +210,9 @@ const PoemsPage: React.FC<PageProps> = () => {
 
   useEffect(() => { 
     const id = getLastItem(window.location.pathname.slice(0, -1));
-
-    fetch(`${API_URL}/poems/${id}`)
-      .then(data => data.json())
-      .then(loadPoem)
+    
+    request(`/poems/${id}`)
+      .then(({ data }) => loadPoem(data))
       .then(() => setWait(undefined));
   }, []);
 
@@ -272,11 +269,8 @@ const PoemsPage: React.FC<PageProps> = () => {
 
   const handleSave = () => {
     setWait("Zapisywanie zmian, prosze czekać");
-    fetch(`${API_URL}/poems/${id}`, { 
-      method: "put",
-      body: JSON.stringify(data), 
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json'}
-    }).then(() => window.location.pathname = "/admin/poems");
+    request(`/poems/${id}`, "put", data)
+      .then(() => window.location.pathname = "/admin/poems");
   };
 
   const handleCancel = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "../button/button";
-import { API_URL } from "../../data/api";
+import { API_URL } from "../../api";
 import { PoemData } from "../poem-reader/poem-reader";
 import styled from "@emotion/styled";
 
