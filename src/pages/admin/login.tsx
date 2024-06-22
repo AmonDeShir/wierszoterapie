@@ -101,12 +101,12 @@ const OrderPage: React.FC<PageProps> = () => {
         <Form onSubmit={handleLogin}>
           <Label>
             Email
-            <Input name="email" type="email" id="email" value={email} onInput={(e) => setEmail(e.currentTarget.value)} />
+            <Input name="email" autoComplete="login" type="email" id="email" value={email} onInput={(e) => setEmail(e.currentTarget.value)} />
           </Label>
 
           <Label>
             Hasło
-            <Input name="password" type="password" id="password" value={password} onInput={(e) => setPassword(e.currentTarget.value)} />
+            <Input name="password" autoComplete="current-password" type="password" id="password" value={password} onInput={(e) => setPassword(e.currentTarget.value)} />
           </Label>
 
           <Buttons>
