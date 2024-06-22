@@ -1,5 +1,5 @@
 import * as React from "react"
-import { StaticQueryDocument, graphql, useStaticQuery, type HeadFC, type HeadProps, type PageProps } from "gatsby"
+import { graphql, type HeadFC, type HeadProps, type PageProps } from "gatsby"
 import { Page } from "../components/page/page"
 import { SEO } from "../components/seo/seo"
 import { Book } from "../parts/book";
@@ -15,35 +15,12 @@ const pages: [string, string, number][] = [
   ["KONTAKT", "#contact", 3],
 ];
 
-const IndexPage: React.FC<PageProps> = () => {
+const IndexPage: React.FC<PageProps<DataType>> = ({ data }) => {
   const [page, setPage] = React.useState(0);
 
-  const data = useStaticQuery<DataType>(graphql`
-    query SWAPI {
-      swapi {
-        getPoems {
-          _id
-          title
-          author
-          date
-          dedication
-          text
-          updated_at
-        }
-      }
-      site {
-        siteMetadata {
-          siteUrl
-        }
-      }
-    }
-  `);
-    
   const handlePageChange = (page: number) => {
     setPage(page)
   };
-  
-  console.log("data", data);
 
   return (
     <Page>
@@ -76,28 +53,7 @@ interface DataType {
   }
 };
 
-export function Head({ location }: HeadProps) {
-  const data = useStaticQuery<DataType>(graphql`
-  query SWAPI {
-    swapi {
-      getPoems {
-        _id
-        title
-        author
-        date
-        dedication
-        text
-        updated_at
-      }
-    }
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
-  }
-`);
-
+export function Head({ data, location }: HeadProps<DataType>) {
   const siteUrl = data.site.siteMetadata.siteUrl;
   const slug = location.pathname;
 
@@ -111,3 +67,24 @@ export function Head({ location }: HeadProps) {
     </SEO>
   );
 }
+
+export const query = graphql`
+  {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+    swapi {
+      getPoems {
+        _id
+        title
+        author
+        date
+        dedication
+        text
+        updated_at
+      }
+    }
+  }
+`;
