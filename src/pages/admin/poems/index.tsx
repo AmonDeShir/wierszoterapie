@@ -57,8 +57,6 @@ const PoemsPage: React.FC<PageProps<DataType>> = ({ data }) => {
   const [poems, setPoems] = useState<PoemData[]>([]);
   const [selected, setSelected] = useState(0);
 
-  console.log("data: ", data);
-
   useEffect(() => { 
     request(`/poems`)
       .then(({ data }) => setPoems(data))

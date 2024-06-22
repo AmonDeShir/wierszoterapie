@@ -85,7 +85,6 @@ export const query = graphql`
         date
         dedication
         text
-        updated_at
       }
     }
   }
