@@ -31,6 +31,7 @@ const IndexPage: React.FC<PageProps<DataType>> = () => {
           updated_at
         }
       }
+    }
   `);
     
   const handlePageChange = (page: number) => {
