@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, type HeadFC, type HeadProps, type PageProps } from "gatsby"
+import { StaticQueryDocument, graphql, useStaticQuery, type HeadFC, type HeadProps, type PageProps } from "gatsby"
 import { Page } from "../components/page/page"
 import { SEO } from "../components/seo/seo"
 import { Book } from "../parts/book";
@@ -15,9 +15,23 @@ const pages: [string, string, number][] = [
   ["KONTAKT", "#contact", 3],
 ];
 
-const IndexPage: React.FC<PageProps<DataType>> = ({ data }) => {
+const IndexPage: React.FC<PageProps<DataType>> = () => {
   const [page, setPage] = React.useState(0);
 
+  const data = useStaticQuery<DataType>(graphql`
+    swapi {
+      getPoems {
+        _id
+        title
+        author
+        date
+        dedication
+        text
+        updated_at
+      }
+    }
+  `);
+    
   const handlePageChange = (page: number) => {
     setPage(page)
   };
@@ -80,6 +94,11 @@ export const query = graphql`
     swapi {
       getPoems {
         _id
+        title
+        author
+        date
+        dedication
+        text
         updated_at
       }
     }
