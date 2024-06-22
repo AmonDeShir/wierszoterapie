@@ -31,6 +31,11 @@ const IndexPage: React.FC<PageProps> = () => {
           updated_at
         }
       }
+      site {
+        siteMetadata {
+          siteUrl
+      }
+    }
     }
   `);
     
@@ -85,13 +90,3 @@ export function Head({ data, location }: HeadProps<DataType>) {
     </SEO>
   );
 }
-
-export const query = graphql`
-  {
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
-  }
-`;
