@@ -21,6 +21,8 @@ const IndexPage: React.FC<PageProps<DataType>> = ({ data }) => {
   const handlePageChange = (page: number) => {
     setPage(page)
   };
+  
+  console.log("data", data);
 
   return (
     <Page>
