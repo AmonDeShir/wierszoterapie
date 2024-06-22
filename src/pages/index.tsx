@@ -34,8 +34,8 @@ const IndexPage: React.FC<PageProps> = () => {
       site {
         siteMetadata {
           siteUrl
+        }
       }
-    }
     }
   `);
     
@@ -76,7 +76,28 @@ interface DataType {
   }
 };
 
-export function Head({ data, location }: HeadProps<DataType>) {
+export function Head({ location }: HeadProps) {
+  const data = useStaticQuery<DataType>(graphql`
+  query SWAPI {
+    swapi {
+      getPoems {
+        _id
+        title
+        author
+        date
+        dedication
+        text
+        updated_at
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`);
+
   const siteUrl = data.site.siteMetadata.siteUrl;
   const slug = location.pathname;
 
