@@ -15,7 +15,7 @@ const pages: [string, string, number][] = [
   ["KONTAKT", "#contact", 3],
 ];
 
-const IndexPage: React.FC<PageProps<DataType>> = () => {
+const IndexPage: React.FC<PageProps> = () => {
   const [page, setPage] = React.useState(0);
 
   const data = useStaticQuery<DataType>(graphql`
@@ -91,17 +91,6 @@ export const query = graphql`
     site {
       siteMetadata {
         siteUrl
-      }
-    }
-    swapi {
-      getPoems {
-        _id
-        title
-        author
-        date
-        dedication
-        text
-        updated_at
       }
     }
   }
