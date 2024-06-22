@@ -80,11 +80,7 @@ export const query = graphql`
     swapi {
       getPoems {
         _id
-        title
-        author
-        date
-        dedication
-        text
+        updated_at
       }
     }
   }
