@@ -74,6 +74,7 @@ const FindPaczkomat = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.primary};
   padding-top: 1rem;
+  width: 100%;
 `;
 
 export const Delivery = ({ paczkomat, onChange }: Props) => {
