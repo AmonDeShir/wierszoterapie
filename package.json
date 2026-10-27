@@ -16,12 +16,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
     "@fontsource/mitr": "^5.0.13",
     "@fontsource/source-serif-4": "^5.0.18",
     "gatsby": "^5.13.3",
-    "gatsby-plugin-emotion": "^8.13.1",
+    "gatsby-plugin-postcss": "^6.13.1",
     "gatsby-source-graphql": "^5.13.1",
     "gsap": "^3.12.5",
     "mammoth": "^1.8.0",
@@ -34,9 +32,12 @@
     "react-page-scroller": "^3.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
+    "postcss": "^8.5.0",
+    "tailwindcss": "^4.3.0",
     "typescript": "^5.3.3"
   }
 }

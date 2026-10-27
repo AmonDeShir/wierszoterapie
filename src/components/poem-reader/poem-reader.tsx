@@ -1,103 +1,99 @@
-import { PropsWithChildren, useRef, useState } from "react";
-import { Author, Container, Dedication, Description, Icon, MobileIcons, PoemContainer, Text, Title } from "./poem-reader.styles";
-import { FaChevronLeft } from "react-icons/fa";
-import { FaChevronRight } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import gsap from "gsap";
-import styled from "@emotion/styled";
-import React from "react";
+import { PoemContainer } from "./poem-container";
 
 export type PoemData = {
-  _id: string,
-  text: string,
-  title: string,
-  author: string,
-  date?: string,
-  dedication?: string,
-  updated_at?: number,
-}
+  _id: string;
+  text: string;
+  title: string;
+  author: string;
+  date?: string;
+  dedication?: string;
+  updated_at?: number;
+};
 
-type Props = PropsWithChildren<{
-  poems: PoemData[],
-}>
+type Props = {
+  poems: PoemData[];
+};
 
-export const Poem = ({poem}: { poem: PoemData }) => (
-  <div key={poem.title}>
-    <Author>{poem.author}</Author>
-    <Title>{poem.title}</Title>
-    <Dedication>{poem.dedication}</Dedication>
-
-    <Text align="left">
-      {poem.text}
-    </Text>
-
-    <Description>
-      {poem.date}
-    </Description>
+export const Poem = ({ poem }: { poem: PoemData }) => (
+  <div className="max-w-full">
+    <p className="pb-2.5 text-left text-sm font-bold">{poem.author}</p>
+    <h2 className="pt-2.5 pb-5 text-left font-text text-xl font-bold text-primary">
+      {poem.title}
+    </h2>
+    {poem.dedication && <p className="text-right text-sm">{poem.dedication}</p>}
+    <p className="text-left text-sm whitespace-pre-line">{poem.text}</p>
+    {poem.date && <p className="pt-2.5 text-right text-sm">{poem.date}</p>}
   </div>
 );
 
+const arrowClasses =
+  "flex size-10 shrink-0 cursor-pointer items-center justify-center text-dark transition-[scale,color] duration-200 hover:scale-120 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary aria-disabled:cursor-default motion-reduce:transition-none";
+
 export const PoemReader = ({ poems }: Props) => {
   const [selected, setSelected] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
+  const [isChanging, setIsChanging] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+  const animation = useRef<gsap.core.Timeline | null>(null);
 
-  const decrement = () => {
-    console.log("before", window.scrollY);
+  useEffect(() => () => { animation.current?.kill(); }, []);
 
-    gsap.timeline()
-      .to(ref.current, { opacity: 0, duration: 0.25 })
-      .call(() => setSelected(selected => (selected - 1) < 0 ? poems.length - 1 : selected - 1))
-      .to(ref.current, { opacity: 1, duration: 0.25 })
-      .call(() =>     console.log("after", window.scrollY)    )
-  }
-  
-  const increment = () => {
-    gsap.timeline()
-      .to(ref.current, { opacity: 0, duration: 0.25 })
-      .call(() => setSelected(selected => (selected + 1) >= poems.length ? 0 : selected + 1))
-      .to(ref.current, { opacity: 1, duration: 0.25 })
-      .call(() => console.log(window.innerHeight));
-  }
+  const changePoem = (direction: number) => {
+    if (isChanging || poems.length < 2) return;
 
-  const PCIcons = styled.div`
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 25vw;
+    const selectNext = () =>
+      setSelected((current) => (current + direction + poems.length) % poems.length);
 
-    @media (max-width: 1000px) {
-      padding: 0 15vw;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      selectNext();
+      return;
     }
 
-    @media (max-width: 800px) {
-      padding: 0 10vw;
-    }
+    setIsChanging(true);
+    animation.current = gsap
+      .timeline({ onComplete: () => setIsChanging(false) })
+      .to(ref.current, { opacity: 0, duration: 0.4, ease: "power1.inOut" })
+      .call(() => flushSync(selectNext))
+      .to(ref.current, { opacity: 1, duration: 0.5, ease: "power1.inOut" });
+  };
 
-    @media (max-width: 300px) {
-      padding: 0 2px;
-    }
-  `;
+  const poem = poems[selected] ?? poems[0];
+  if (!poem) return null;
 
   return (
-    <Container>
-      <PCIcons>
-        <Icon>
-          <FaChevronLeft color="#333" size="100%" onClick={decrement} />
-        </Icon>
-
-        <Icon>
-          <FaChevronRight color="#333" size="100%" onClick={increment} />
-        </Icon>
-
-      </PCIcons>
-      
-      <PoemContainer ref={ref}>
-        <Poem key={poems[selected]._id} poem={poems[selected]} />
+    <div className="grid w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 sm:gap-8">
+      <button
+        type="button"
+        aria-label="Poprzedni wiersz"
+        className={arrowClasses}
+        disabled={poems.length < 2}
+        aria-disabled={isChanging || poems.length < 2}
+        onClick={() => changePoem(-1)}
+      >
+        <FaChevronLeft className="size-5" aria-hidden="true" />
+      </button>
+      <PoemContainer
+        ref={ref}
+        noAbsolute
+        aria-live="polite"
+        aria-atomic="true"
+        className="min-w-0"
+      >
+        <Poem key={poem._id} poem={poem} />
       </PoemContainer>
-    </Container>
+      <button
+        type="button"
+        aria-label="Następny wiersz"
+        className={arrowClasses}
+        disabled={poems.length < 2}
+        aria-disabled={isChanging || poems.length < 2}
+        onClick={() => changePoem(1)}
+      >
+        <FaChevronRight className="size-5" aria-hidden="true" />
+      </button>
+    </div>
   );
 };

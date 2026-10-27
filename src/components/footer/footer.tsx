@@ -1,17 +1,11 @@
-import styled from "@emotion/styled";
+import { type ComponentPropsWithoutRef } from "react";
 
-export const Footer = styled.footer`
-    text-align: center;
-    height: 20rem;
-    width: 100%;
-    display: block;
-    font-size: 2rem;
-    background-color: ${({theme}) => theme.colors.dark};
-    color: ${({ theme }) => theme.colors.secondary};
-    font-family: ${({ theme }) => theme.fonts.ui};
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`;
+export const Footer = ({
+  className = "",
+  ...props
+}: ComponentPropsWithoutRef<"footer">) => (
+  <footer
+    {...props}
+    className={`flex h-25 w-full shrink-0 flex-col items-center justify-center bg-dark text-center font-ui text-2xs font-normal leading-normal text-secondary ${className}`}
+  />
+);

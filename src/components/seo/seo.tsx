@@ -9,7 +9,7 @@ interface SEOProps {
 export function SEO({ title, description, url, children }: React.PropsWithChildren<SEOProps>) {
   return (
     <>
-      <title>Wierszoterapie {title}</title>
+      <title>{`Patrycja Purgał ${title}`.trim()}</title>
       <meta name="description" content={description} />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

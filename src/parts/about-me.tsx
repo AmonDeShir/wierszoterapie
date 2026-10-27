@@ -1,91 +1,25 @@
-import styled from "@emotion/styled";
-import image from "../images/author.webp"
+import image from "../images/author.webp";
 import { AboutMeText } from "../data/about-me";
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-
-const Content = styled.div`
-  display: flex;
-  align-items: flex-end;
-  width: 50%;
-  min-height: 100vh;
-
-  @media (max-width: 1600px) {
-    width: 60%;
-  }
-
-  @media (max-width: 1300px) {
-    width: 80%;
-  }
-
-  @media (max-width: 1000px) {
-    padding: 0 5px;
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const Image = styled.img`
-  width: auto;
-  height: 80%;
-  max-height: 80vmin;
-
-  @media (max-height: 400px) and (orientation:landscape) {
-    height: 90%;
-    max-height: 85vmin;
-  }
-`;
-
-const Description = styled.div`
-  font-size: 2.6rem;
-  font-family: ${({ theme }) => theme.fonts.text};
-  min-height: 70vh;
-  padding-left: 5rem;
-
-  @media (max-width: 1000px) {
-    min-height: 0px;
-  }
-`;
-
-const Title = styled.div`
-  font-size: 4rem;
-  font-weight: 500;
-  color: ${({ theme }) => theme.colors.primary};
-  font-family: ${({ theme }) => theme.fonts.ui};
-  text-align: center;
-  padding-bottom: 1rem;
-  margin-bottom: auto;
-
-  @media (max-width: 1000px) {
-    padding: 1rem 0rem;
-  }
-`;
-
-const Text = styled.div`
-  text-align: justify;
-  margin-bottom: auto;
-  font-size: 2.7rem;
-  padding: 2.5rem 0;
-
-  @media (max-width: 1000px) {
-    padding-top: 0rem;
-  }
-`;
-
 export const AboutMe = () => (
-  <Container id="about-me">
-    <Content>
-      <Image src={image} />
+  <section className="scroll-mt-0 py-12 lg:scroll-mt-18 lg:py-0" id="about-me" aria-labelledby="about-title">
+    <div className="site-container flex min-h-svh flex-col items-center gap-8 lg:min-h-[calc(100svh-var(--spacing)*18)] lg:flex-row lg:items-end lg:gap-6">
+      <img
+        className="mx-auto h-auto max-h-[80vmin] w-auto max-w-full shrink-0 object-contain object-bottom lg:mx-0 lg:max-w-3/5"
+        src={image}
+        width={683}
+        height={1024}
+        alt="Patrycja Purgał"
+      />
 
-      <Description>
-        <Title>O mnie</Title>
-        <Text><AboutMeText/></Text>
-      </Description>
-    </Content>
-  </Container>
+      <div className="min-w-0 font-text text-sm lg:min-h-[70svh] lg:flex-1">
+        <h2 id="about-title" className="pb-1.5 text-center font-ui text-xl font-medium text-primary">
+          O mnie
+        </h2>
+        <div className="py-3 text-justify">
+          <AboutMeText />
+        </div>
+      </div>
+    </div>
+  </section>
 );

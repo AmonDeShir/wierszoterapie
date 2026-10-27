@@ -1,6 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
+  jsxRuntime: "automatic",
   siteMetadata: {
     title: `Patrycja Purgał`,
     description: "",
@@ -12,7 +13,7 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-emotion", 
+    "gatsby-plugin-postcss",
     {
       resolve: "gatsby-source-graphql",
       options: {

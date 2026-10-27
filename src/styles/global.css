@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@source "../";
+
+@theme {
+  --color-primary: #df0036;
+  --color-secondary: #fff;
+  --color-body: #333;
+  --color-dark: #333;
+  --font-text: "Source Serif 4", serif;
+  --font-ui: "Mitr", sans-serif;
+  --text-2xs: 10px;
+  --text-2xs--line-height: 1.5;
+}
+
+@utility site-container {
+  @apply mx-auto w-1/2 max-w-7xl max-[1600px]:w-3/5 max-[1300px]:w-4/5;
+}
+
+@layer base {
+  body {
+    @apply font-text text-body;
+  }
+}

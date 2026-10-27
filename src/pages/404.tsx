@@ -1,44 +1,23 @@
-import * as React from "react"
-import { PageProps, HeadProps, graphql } from "gatsby"
-import { Page } from "../components/page/page"
+import * as React from "react";
+import { PageProps, HeadProps, graphql } from "gatsby";
+import { Page } from "../components/page/page";
 import { SEO } from "../components/seo/seo";
 import { NavBar } from "../components/nav/nav";
-import styled from "@emotion/styled";
 
-const pages: [string, string, number][] = [
-  ["KSIĄŻKA", "/#wierszoterapie", 0],
-  ["O MNIE", "/#about-me", 1],
-  ["WIERSZE", "/#poems", 2],
-  ["KONTAKT", "/#contact", 3],
-];
-
-const Text = styled.div`
-  text-align: justify;
-  margin-bottom: auto;
-  font-size: 2.7rem;
-  padding: 2.5rem 0;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
+import { homeLinks as pages } from "../data/navigation";
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
     <Page>
       <NavBar selected="" pages={pages} useLinks />
-      <Text>
-        404
-        Nie odnaleziono strony
-      </Text>
+      <div className="mb-auto py-3 text-justify text-sm flex h-full min-h-screen w-full flex-col items-center justify-center">
+        404 Nie odnaleziono strony
+      </div>
     </Page>
-  )
-}
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;
 
 interface DataType {
   site: {
@@ -46,8 +25,7 @@ interface DataType {
       siteUrl: string;
     };
   };
-};
-
+}
 
 export function Head({ data, location }: HeadProps<DataType>) {
   const siteUrl = data.site.siteMetadata.siteUrl;
@@ -56,7 +34,7 @@ export function Head({ data, location }: HeadProps<DataType>) {
   return (
     <SEO
       url={`${siteUrl}${slug}`}
-      title=" - Not found" 
+      title=" - Not found"
       description="Content not found"
     >
       <html lang="pl" />

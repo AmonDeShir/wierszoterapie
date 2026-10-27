@@ -1,5 +1,9 @@
+import type { GatsbyNode } from "gatsby";
 
-exports.onCreatePage = async ({ page, actions }) => {
+export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
+  page,
+  actions,
+}) => {
   const { createPage, deletePage } = actions;
 
   if (page.path.match(/^\/admin\/poems\/edit/)) {
